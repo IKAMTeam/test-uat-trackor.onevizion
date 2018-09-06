@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Selenium tests suite">
+    <parameter name="test.selenium.screenshotsPath" value="${test.selenium.screenshotsPath}" />
+    <parameter name="test.selenium.ciAddr" value="${test.selenium.ciAddr}" />
+    <parameter name="test.selenium.remoteWebDriver" value="${test.selenium.remoteWebDriver}" />
+    <parameter name="test.selenium.user" value="${test.selenium.user}" />
+    <listeners>
+        <listener class-name="com.onevizion.guitest.SeleniumAnnotationTransformer" />
+    </listeners>
+</suite>
