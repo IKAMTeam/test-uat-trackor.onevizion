@@ -8,10 +8,11 @@ import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
 import com.onevizion.guitest.AbstractSeleniumDefaultPage;
+import com.onevizion.guitest.annotation.SeleniumTest;
 import com.onevizion.guitest.vo.ConfigFieldType;
 
 @Component
-//@SeleniumTest
+@SeleniumTest
 //@SeleniumUser(name="")
 public class AddNewComment1Test extends AbstractSeleniumDefaultPage {
 
