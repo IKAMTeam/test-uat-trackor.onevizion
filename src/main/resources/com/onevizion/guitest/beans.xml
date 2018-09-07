@@ -49,10 +49,6 @@
         <constructor-arg type="java.lang.String" value="${test.selenium.defaultTimeout}" />
     </bean>
 
-    <bean id="entityPrefix" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.entityPrefix}" />
-    </bean>
-
     <bean id="screenshotsPath" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${test.selenium.screenshotsPath}" />
     </bean>
@@ -71,6 +67,10 @@
 
     <bean id="restApiUrl" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${test.selenium.restApiUrl}" />
+    </bean>
+
+    <bean id="headlessMode" class="java.lang.Boolean">
+        <constructor-arg type="java.lang.String" value="${test.selenium.headlessMode}" />
     </bean>
 
     <bean id="serverUrl" class="java.lang.String">
