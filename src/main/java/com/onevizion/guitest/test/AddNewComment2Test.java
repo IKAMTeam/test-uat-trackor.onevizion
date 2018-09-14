@@ -30,16 +30,16 @@ public class AddNewComment2Test extends AbstractSeleniumLoginPage {
         qsHelper.searchValue(getGridIdx(), "C:Case ID", "102906");
 
         window.openModal(By.id(BUTTON_EDIT_ID_BASE + getGridIdx()));
-        waitHelper.waitWebElement(By.id(BUTTON_OK_ID_BASE));
-        waitHelper.waitConfigTabLoad(1L);
+        wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
+        wait.waitConfigTabLoad(1L);
 
         tabHelper.goToTab(2L);
-        waitHelper.waitConfigTabLoad(2L);
+        wait.waitConfigTabLoad(2L);
 
         tbHelper.editField(ConfigFieldType.MEMO, "AddNewComment2Test", null, "fe" + CFID + "_1_0", vals, null, 2);
 
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
-        waitHelper.waitGridLoad(getGridIdx(), getGridIdx());
+        wait.waitGridLoad(getGridIdx(), getGridIdx());
 
         logoffHelper.logoff();
     }
