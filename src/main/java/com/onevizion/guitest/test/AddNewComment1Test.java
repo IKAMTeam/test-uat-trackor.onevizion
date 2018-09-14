@@ -29,7 +29,7 @@ public class AddNewComment1Test extends AbstractSeleniumDefaultPage {
         wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
         wait.waitConfigTabLoad(1L);
 
-        tabHelper.goToTab(2L);
+        tab.goToTab(2L);
         wait.waitConfigTabLoad(2L);
 
         tb.editField(ConfigFieldType.MEMO, "AddNewComment1Test", null, "fe" + CFID + "_1_0", vals, null, 2);
