@@ -36,7 +36,7 @@ public class AddNewComment2Test extends AbstractSeleniumLoginPage {
         tabHelper.goToTab(2L);
         wait.waitConfigTabLoad(2L);
 
-        tbHelper.editField(ConfigFieldType.MEMO, "AddNewComment2Test", null, "fe" + CFID + "_1_0", vals, null, 2);
+        tb.editField(ConfigFieldType.MEMO, "AddNewComment2Test", null, "fe" + CFID + "_1_0", vals, null, 2);
 
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
         wait.waitGridLoad(getGridIdx(), getGridIdx());

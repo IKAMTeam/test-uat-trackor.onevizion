@@ -32,7 +32,7 @@ public class AddNewComment1Test extends AbstractSeleniumDefaultPage {
         tabHelper.goToTab(2L);
         wait.waitConfigTabLoad(2L);
 
-        tbHelper.editField(ConfigFieldType.MEMO, "AddNewComment1Test", null, "fe" + CFID + "_1_0", vals, null, 2);
+        tb.editField(ConfigFieldType.MEMO, "AddNewComment1Test", null, "fe" + CFID + "_1_0", vals, null, 2);
 
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
         wait.waitGridLoad(getGridIdx(), getGridIdx());
