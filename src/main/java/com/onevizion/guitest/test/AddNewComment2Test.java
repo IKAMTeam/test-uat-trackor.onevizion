@@ -24,7 +24,7 @@ public class AddNewComment2Test extends AbstractSeleniumLoginPage {
     public void addCommentToCase() {
         Map<String, String> vals = new HashMap<String, String>();
 
-        loginHelper.login(USER_NAME, USER_PWD);
+        login.login(USER_NAME, USER_PWD);
 
         mainMenu.selectMenuItem("Cases");
         qs.searchValue(getGridIdx(), "C:Case ID", "102906");

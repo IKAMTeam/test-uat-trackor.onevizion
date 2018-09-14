@@ -14,7 +14,7 @@ public abstract class AbstractSeleniumDefaultPage extends AbstractSelenium {
         seleniumSettings.getUserProperties().setDateFormat("MM/DD/YYYY");
         seleniumSettings.getUserProperties().setJavaTimeFormat("hh:mm:ss aa");
 
-        loginHelper.login(userName, password);
+        login.login(userName, password);
     }
 
     @Override
