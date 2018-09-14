@@ -22,7 +22,7 @@ public class AddNewComment1Test extends AbstractSeleniumDefaultPage {
     public void addCommentToCase() {
         Map<String, String> vals = new HashMap<String, String>();
 
-        mainMenuHelper.selectMenuItem("Cases");
+        mainMenu.selectMenuItem("Cases");
         qsHelper.searchValue(getGridIdx(), "C:Case ID", "102906");
 
         windowHelper.openModal(By.id(BUTTON_EDIT_ID_BASE + getGridIdx()));

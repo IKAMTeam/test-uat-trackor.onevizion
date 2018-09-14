@@ -26,7 +26,7 @@ public class AddNewComment2Test extends AbstractSeleniumLoginPage {
 
         loginHelper.login(USER_NAME, USER_PWD);
 
-        mainMenuHelper.selectMenuItem("Cases");
+        mainMenu.selectMenuItem("Cases");
         qsHelper.searchValue(getGridIdx(), "C:Case ID", "102906");
 
         windowHelper.openModal(By.id(BUTTON_EDIT_ID_BASE + getGridIdx()));
