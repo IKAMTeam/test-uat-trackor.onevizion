@@ -41,7 +41,7 @@ public class AddNewComment2Test extends AbstractSeleniumLoginPage {
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
         wait.waitGridLoad(getGridIdx(), getGridIdx());
 
-        logoffHelper.logoff();
+        logoff.logoff();
     }
 
 }
