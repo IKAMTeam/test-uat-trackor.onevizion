@@ -25,7 +25,7 @@ public class AddNewComment1Test extends AbstractSeleniumDefaultPage {
         mainMenu.selectMenuItem("Cases");
         qsHelper.searchValue(getGridIdx(), "C:Case ID", "102906");
 
-        windowHelper.openModal(By.id(BUTTON_EDIT_ID_BASE + getGridIdx()));
+        window.openModal(By.id(BUTTON_EDIT_ID_BASE + getGridIdx()));
         waitHelper.waitWebElement(By.id(BUTTON_OK_ID_BASE));
         waitHelper.waitConfigTabLoad(1L);
 
@@ -34,7 +34,7 @@ public class AddNewComment1Test extends AbstractSeleniumDefaultPage {
 
         tbHelper.editField(ConfigFieldType.MEMO, "AddNewComment1Test", null, "fe" + CFID + "_1_0", vals, null, 2);
 
-        windowHelper.closeModal(By.id(BUTTON_OK_ID_BASE));
+        window.closeModal(By.id(BUTTON_OK_ID_BASE));
         waitHelper.waitGridLoad(getGridIdx(), getGridIdx());
     }
 
