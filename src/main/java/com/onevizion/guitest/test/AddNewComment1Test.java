@@ -23,7 +23,7 @@ public class AddNewComment1Test extends AbstractSeleniumDefaultPage {
         Map<String, String> vals = new HashMap<String, String>();
 
         mainMenu.selectMenuItem("Cases");
-        qsHelper.searchValue(getGridIdx(), "C:Case ID", "102906");
+        qs.searchValue(getGridIdx(), "C:Case ID", "102906");
 
         window.openModal(By.id(BUTTON_EDIT_ID_BASE + getGridIdx()));
         wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
