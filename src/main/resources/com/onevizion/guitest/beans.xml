@@ -77,7 +77,7 @@
         <constructor-arg type="java.lang.String" value="${test.selenium.serverUrl}" />
     </bean>
 
-    <import resource="classpath:com/onevizion/guitest/beans-core.xml" />
+    <import resource="classpath:com/onevizion/uitest/api/beans.xml" />
 
     <context:component-scan base-package="com.onevizion.guitest" />
 

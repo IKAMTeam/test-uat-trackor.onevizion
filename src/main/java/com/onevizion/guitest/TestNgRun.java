@@ -14,7 +14,7 @@ import org.testng.xml.XmlClass;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
-import com.onevizion.guitest.annotation.SeleniumUser;
+import com.onevizion.uitest.api.annotation.SeleniumUser;
 
 public class TestNgRun {
 

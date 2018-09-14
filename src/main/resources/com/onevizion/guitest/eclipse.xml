@@ -7,6 +7,6 @@
     <parameter name="test.selenium.remoteWebDriver" value="${test.selenium.remoteWebDriver}" />
     <parameter name="test.selenium.user" value="${test.selenium.user}" />
     <listeners>
-        <listener class-name="com.onevizion.guitest.SeleniumAnnotationTransformer" />
+        <listener class-name="com.onevizion.uitest.api.SeleniumAnnotationTransformer" />
     </listeners>
 </suite>

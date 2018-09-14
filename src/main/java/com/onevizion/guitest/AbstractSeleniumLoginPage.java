@@ -1,5 +1,7 @@
 package com.onevizion.guitest;
 
+import com.onevizion.uitest.api.UserProperties;
+
 public abstract class AbstractSeleniumLoginPage extends AbstractSelenium {
 
     public AbstractSeleniumLoginPage() {

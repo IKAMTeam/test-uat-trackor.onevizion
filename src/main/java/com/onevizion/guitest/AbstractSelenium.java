@@ -9,6 +9,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
+import com.onevizion.uitest.api.AbstractSeleniumCore;
+import com.onevizion.uitest.api.SeleniumListener;
+
 @ContextConfiguration(locations = { "classpath:com/onevizion/guitest/beans.xml" })
 @Transactional(transactionManager = "transactionManager")
 @Rollback(false)

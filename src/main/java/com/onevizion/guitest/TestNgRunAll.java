@@ -20,8 +20,9 @@ import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.testng.TestNG;
 import org.testng.xml.XmlSuite;
 
-import com.onevizion.guitest.annotation.SeleniumTest;
-import com.onevizion.guitest.restapi.CreateProcess;
+import com.onevizion.uitest.api.SeleniumAnnotationTransformer;
+import com.onevizion.uitest.api.annotation.SeleniumTest;
+import com.onevizion.uitest.api.restapi.CreateProcess;
 
 public class TestNgRunAll extends TestNgRun {
 
