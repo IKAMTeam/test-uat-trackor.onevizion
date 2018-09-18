@@ -17,64 +17,72 @@
         http://www.springframework.org/schema/cache
         http://www.springframework.org/schema/cache/spring-cache-3.2.xsd">
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:/com/onevizion/guitest/client.properties</value>
+            </list>
+        </property>
+    </bean>
+
     <bean id="testUser" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.user}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.user:}" />
     </bean>
 
     <bean id="testPassword" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.password}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.password:}" />
     </bean>
 
     <bean id="testPasswordApiV3" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.passwordApiV3}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.passwordApiV3:}" />
     </bean>
 
     <bean id="remoteWebDriver" class="java.lang.Boolean">
-        <constructor-arg type="java.lang.String" value="${test.selenium.remoteWebDriver}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.remoteWebDriver:}" />
     </bean>
 
     <bean id="remoteAddress" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.remoteAddress}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.remoteAddress:}" />
     </bean>
 
     <bean id="browser" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.browser}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.browser:chrome}" />
     </bean>
 
     <bean id="uploadFilesPath" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.uploadFilesPath}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.uploadFilesPath:}" />
     </bean>
 
     <bean id="defaultTimeout" class="java.lang.Long">
-        <constructor-arg type="java.lang.String" value="${test.selenium.defaultTimeout}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.defaultTimeout:10}" />
     </bean>
 
     <bean id="screenshotsPath" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.screenshotsPath}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.screenshotsPath:}" />
     </bean>
 
     <bean id="ciAddr" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.ciAddr}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.ciAddr:}" />
     </bean>
 
     <bean id="testName" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${testName}" />
+        <constructor-arg type="java.lang.String" value="${testName:}" />
     </bean>
 
     <bean id="restApiCredential" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.restApiCredential}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.restApiCredential:}" />
     </bean>
 
     <bean id="restApiUrl" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.restApiUrl}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.restApiUrl:}" />
     </bean>
 
     <bean id="headlessMode" class="java.lang.Boolean">
-        <constructor-arg type="java.lang.String" value="${test.selenium.headlessMode}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.headlessMode:}" />
     </bean>
 
     <bean id="serverUrl" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.serverUrl}" />
+        <constructor-arg type="java.lang.String" value="${test.selenium.serverUrl:}" />
     </bean>
 
     <import resource="classpath:com/onevizion/uitest/api/beans.xml" />
