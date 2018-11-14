@@ -22,9 +22,6 @@ import com.onevizion.uitest.api.vo.ConfigFieldType;
  * <b>Use-case "Add Internal Comment"</b>
  */
 public class AddInternalComment extends AbstractSeleniumLoginPage {
-    /**
-     *
-     */
     protected final static String USER_NAME = "";
     protected final static String USER_PWD = "";
 
