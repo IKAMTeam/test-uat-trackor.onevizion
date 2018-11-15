@@ -1,5 +1,6 @@
 # test-uat-trackor.onevizion
 UI Tests for uat-trackor.onevizion
+https://ikamteam.github.io/test-uat-trackor.onevizion/
 
 Project contains automated UI tests for uat-trackor.onevizion.com installation.
 
