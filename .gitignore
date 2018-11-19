@@ -7,3 +7,5 @@ debug.log
 *bin*
 client.properties
 chromedriver.exe
+.idea
+test-uat-trackor.onevizion.iml
