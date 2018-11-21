@@ -18,9 +18,6 @@ import com.onevizion.uitest.api.vo.ConfigFieldType;
 
 @Component
 @SeleniumTest
-/**
- * <b>Use-case "Add Internal Comment"</b>
- */
 public class AddInternalComment extends AbstractSeleniumLoginPage {
     protected final static String USER_NAME = "";
     protected final static String USER_PWD = "";
@@ -56,76 +53,71 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         /** <b>2. Click on the hyperlink in the field "C:Case ID"</b> */
         WebElement myCase = seleniumSettings.getWebDriver().findElement(By.linkText("104741"));
         window.openModal(myCase);
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
+        wait.waitTabLoad(1L);
+//        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
+//        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /** <b>3. In the opened window (applet) "Edit Case" go to the tab "C:Case Info"</b> */
         tab.goToTab(2L);
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         element.moveToElement(seleniumSettings.getWebDriver().findElement(By.name("fe100099547_1_0")));
 
         /** <b>4. Write a comment in the field "C:New Comment"</b> */
-        String comments_before = seleniumSettings.getWebDriver().findElement(By.name("fe1000912036_1_0")).getText();
+        String comments_before = seleniumSettings.getWebDriver().findElement(By.name("fe1000912036_1_0")).getAttribute("value");
         int comments_length_before = comments_before.length();
 
         Map<String, String> vals = new HashMap<String, String>();
-        vals.put("fe100099547_1_0", "Awaiting Info(Internal)");
 
-        String content_comment = "This comment created for testing";
+        String content_comment = "This is new comment, created for testing";
         tb.editField(ConfigFieldType.MEMO, content_comment, null, "fe1000912037_1_0", vals, null, 2);
+
+        try { Thread.sleep(1500);                 //1000 milliseconds is one second.
+        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /** <b>5. Change the value of the field "C:Status" to "Awaiting Info(Internal)"</b> */
         tb.editField(ConfigFieldType.DROP_DOWN, "Awaiting Info(Internal)", null, "fe100099547_1_0", vals, null, 2);
 
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
+        try { Thread.sleep(1500);                 //1000 milliseconds is one second.
         } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /** <b>6. Click on the "OK" button</b> */
-        window.closeModal(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE));
+        window.closeModal(By.id(BUTTON_OK_ID_BASE));
         wait.waitGridLoad(getGridIdx(), getGridIdx());
-
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /** <b>7. Click on the hyperlink in the "C:Case ID" field of the edited Case.</b> */
         myCase = seleniumSettings.getWebDriver().findElement(By.linkText("104741"));
-        window.openModal(myCase);
-        wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
-        tab.goToTab(2L);
-        wait.waitConfigTabLoad(2L);
 
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
+        window.openModal(myCase);
+        wait.waitTabLoad(1L);
+        tab.goToTab(2L);
+        wait.waitTabLoad(2L);
 
         element.moveToElement(seleniumSettings.getWebDriver().findElement(By.name("fe100099547_1_0")));
 
         /** <b>8. Check that the comment that was written in the "C:New Comment" field has been added to the "C:Internal Comment Log" field</b> */
-        String comment_log_after = seleniumSettings.getWebDriver().findElement(By.name("fe1000912036_1_0")).getText().replace("\n", "");
-        if(comments_length_before >= comment_log_after.length()) throw new SeleniumUnexpectedException("No comment added");
+        String comment_log_after = seleniumSettings.getWebDriver().findElement(By.name("fe1000912036_1_0")).getAttribute("value");
+        if(comments_length_before >= comment_log_after.length())
+            throw new SeleniumUnexpectedException("No comment added");
 
         /**<b>9. Check that the value in the "C:New Comment" field is cleared</b> */
         if(!seleniumSettings.getWebDriver().findElement(By.name("fe1000912037_1_0")).getAttribute("value").toString().equals(""))
             throw new SeleniumUnexpectedException("Field C:New Comment not cleared");
 
+        vals.put("fe100099547_1_0", "Awaiting Info(Internal)");
         /**<b>10. Verify that the value of the "C:Status" field is "Awaiting Info" (Internal)</b> */
         tb.checkField(ConfigFieldType.DROP_DOWN, "fe100099547_1_0", vals, 2, true, false );
 
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
+        try { Thread.sleep(5000);                 //1000 milliseconds is one second.
         } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /**<b>11. Click on the "Cancel" button</b> */
-        window.closeModal(By.id(AbstractSeleniumCore.BUTTON_CANCEL_ID_BASE));
+        window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));
 
         wait.waitGridLoad(getGridIdx(), getGridIdx());
 
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
-
         logoff.logoff();
 
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
+        try { Thread.sleep(1000);                 //1000 milliseconds is one second.
         } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
     }
 
