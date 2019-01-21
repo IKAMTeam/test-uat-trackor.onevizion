@@ -11,16 +11,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
-import com.onevizion.guitest.AbstractSeleniumDefaultPage;
 import com.onevizion.uitest.api.annotation.SeleniumTest;
+import com.onevizion.uitest.api.helper.filter.Filter;
 import com.onevizion.uitest.api.vo.ConfigFieldType;
-
-import javax.lang.model.element.Element;
-import javax.lang.model.util.Elements;
-
-import static com.onevizion.uitest.api.AbstractSeleniumCore.BUTTON_EDIT_ID_BASE;
-import static com.onevizion.uitest.api.AbstractSeleniumCore.BUTTON_OK_ID_BASE;
-import static com.onevizion.uitest.api.AbstractSeleniumCore.getGridIdx;
 
 @Component
 @SeleniumTest
@@ -56,7 +49,7 @@ public class UseCases_Kolyada extends AbstractSeleniumLoginPage {
 
 //        mainMenu.selectMenuItem("Issue");
 
-        window.openModal(By.id(filter.BUTTON_OPEN + getGridIdx()));
+        window.openModal(By.id(Filter.BUTTON_OPEN + getGridIdx()));
         wait.waitWebElement(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE));
         wait.waitFormLoad();
 

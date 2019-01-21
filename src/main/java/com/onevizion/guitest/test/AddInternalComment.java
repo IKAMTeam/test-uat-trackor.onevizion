@@ -2,10 +2,8 @@ package com.onevizion.guitest.test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import com.onevizion.guitest.AbstractSeleniumLoginPage;
-import com.onevizion.uitest.api.AbstractSeleniumCore;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -40,7 +38,7 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
      */
 
     @Test
-    public void AddInternalComment(){
+    public void AddInternalCommentTest(){
 
         login.login(USER_NAME, USER_PWD);
 

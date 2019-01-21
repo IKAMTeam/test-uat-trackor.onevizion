@@ -1,22 +1,14 @@
 package com.onevizion.guitest.test;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.onevizion.guitest.AbstractSeleniumLoginPage;
-import com.onevizion.uitest.api.AbstractSeleniumCore;
-import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
-import com.onevizion.uitest.api.helper.grid.Grid2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
 import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.vo.ConfigFieldType;
-
-import javax.annotation.Resource;
-
 
 @Component
 @SeleniumTest
@@ -41,8 +33,6 @@ public class UseCases_Stepanyuk extends AbstractSeleniumLoginPage {
      */
     @Test
     public void Invoice() {
-        Map<String, String> vals = new HashMap<String, String>();
-
         login.login(USER_NAME, USER_PWD);
 
         //Default Page: Issue
