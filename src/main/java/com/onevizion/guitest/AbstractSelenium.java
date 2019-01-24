@@ -38,8 +38,8 @@ public abstract class AbstractSelenium extends AbstractSeleniumCore {
     }
 
     @AfterClass(alwaysRun = true)
-    public void closeBrowser() throws Exception {
-        seleniumCloseBrowser();
+    public void closeBrowser(ITestContext context) throws Exception {
+        seleniumCloseBrowser(context);
     }
 
 }

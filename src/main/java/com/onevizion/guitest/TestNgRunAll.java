@@ -39,12 +39,15 @@ public class TestNgRunAll extends TestNgRun {
         String browser = (String) ctx.getBean("browser");
         ((AbstractApplicationContext) ctx).close();
 
+        String processTrackorKey = createProcessResult(restApiUrl, restApiCredential);
+
         checkAnnotationInTests(new File(mainFolderWithTests));
 
         Map<String, String> suiteParams = new HashMap<String, String>();
         suiteParams.put("test.selenium.screenshotsPath", screenshotsPath);
         suiteParams.put("test.selenium.ciAddr", ciAddr);
         suiteParams.put("test.selenium.remoteWebDriver", remoteWebDriver.toString());
+        suiteParams.put("test.selenium.processTrackorKey", processTrackorKey);
 
         XmlSuite suiteParallel = new XmlSuite();
         suiteParallel.setName("Selenium tests suite parallel");
@@ -75,10 +78,26 @@ public class TestNgRunAll extends TestNgRun {
         long durationMinutes = TimeUnit.MILLISECONDS.toMinutes(duration);
         String durationMinutesStr = Long.toString(durationMinutes);
 
-        saveResult(restApiUrl, restApiCredential, browser, durationMinutesStr, testsCount);
+        updateProcessResult(restApiUrl, restApiCredential, processTrackorKey, browser, durationMinutesStr, testsCount);
     }
 
-    private static void saveResult(String restApiUrl, String restApiCredential, String browser, String durationMinutesStr, int testsCount) {
+    private static String createProcessResult(String restApiUrl, String restApiCredential) {
+        if (restApiUrl.isEmpty() || restApiCredential.isEmpty()) {
+            return null;
+        }
+
+        String processTrackorKey = null;
+
+        try {
+            processTrackorKey = CreateProcess.create(restApiUrl, restApiCredential);
+        } catch (Exception e) {
+            logger.error("TestNgRunAll.createProcessResult call REST API Unexpected exception: " + e.getMessage());
+        }
+
+        return processTrackorKey;
+    }
+
+    private static void updateProcessResult(String restApiUrl, String restApiCredential, String processTrackorKey, String browser, String durationMinutesStr, int testsCount) {
         if (restApiUrl.isEmpty() || restApiCredential.isEmpty()) {
             return;
         }
@@ -88,9 +107,9 @@ public class TestNgRunAll extends TestNgRun {
         String date = format.format(cal.getTime());
 
         try {
-            CreateProcess.create(restApiUrl, restApiCredential, browser, date, durationMinutesStr, testsCount);
+            CreateProcess.update(restApiUrl, restApiCredential, processTrackorKey, browser, date, durationMinutesStr, testsCount);
         } catch (Exception e) {
-            logger.error("TestNgRunAll call REST API Unexpected exception: " + e.getMessage());
+            logger.error("TestNgRunAll.updateProcessResult call REST API Unexpected exception: " + e.getMessage());
         }
     }
 
