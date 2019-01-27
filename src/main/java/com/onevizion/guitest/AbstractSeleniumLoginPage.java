@@ -9,6 +9,11 @@ public abstract class AbstractSeleniumLoginPage extends AbstractSelenium {
     }
 
     @Override
+    protected String getModuleName() {
+        return "";
+    }
+
+    @Override
     protected final void login(String userName, String password) {
         seleniumSettings.setUserProperties(new UserProperties());
         seleniumSettings.getUserProperties().setDateFormat("MM/DD/YYYY");
