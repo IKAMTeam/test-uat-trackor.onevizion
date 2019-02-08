@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 
 @Component
 @SeleniumTest
-public class Work_with_Invoices  extends AbstractSeleniumLoginPage {
+public class WorkWithInvoices extends AbstractSeleniumLoginPage {
 
     protected final static String USER_NAME = "";
     protected final static String USER_PWD = "";
@@ -41,7 +41,7 @@ public class Work_with_Invoices  extends AbstractSeleniumLoginPage {
      * <p>7. Click on the "Cancel" button</p>
      */
     @Test
-    public void LoadInvoice() {
+    public void loadInvoice() {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);

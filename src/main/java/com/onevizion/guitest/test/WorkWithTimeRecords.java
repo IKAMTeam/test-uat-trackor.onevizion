@@ -20,7 +20,7 @@ import com.onevizion.uitest.api.vo.ConfigFieldType;
 
 import javax.annotation.Resource;
 
-public class Work_with_Time_Records  extends AbstractSeleniumLoginPage {
+public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
 
     protected final static String USER_NAME = "";
     protected final static String USER_PWD = "";
@@ -38,7 +38,7 @@ public class Work_with_Time_Records  extends AbstractSeleniumLoginPage {
      */
 
     @Test
-    public void AddTimeRecord_FillOnlySpentHours() {
+    public void addTimeRecord_FillOnlySpentHours() {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);
@@ -96,7 +96,7 @@ public class Work_with_Time_Records  extends AbstractSeleniumLoginPage {
      * <p>9. Click on the "OK" button</p>
      */
     @Test
-    public void AddTimeRecord_with_filter_TestsAndroid() {
+    public void addTimeRecord_with_filter_TestsAndroid() {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);
@@ -164,7 +164,7 @@ public class Work_with_Time_Records  extends AbstractSeleniumLoginPage {
      * <p>8. Click on the "Close" button</p>
      */
     @Test
-    public void ViewTotalSpendHoursInCurrentMonth() {
+    public void viewTotalSpendHoursInCurrentMonth() {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);

@@ -26,7 +26,7 @@ import static com.onevizion.uitest.api.AbstractSeleniumCore.getGridIdx;
 
 @Component
 @SeleniumTest
-public class Work_with_Issue_and_IssueTask extends AbstractSeleniumLoginPage {
+public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
     protected final static String USER_NAME = "";
     protected final static String USER_PWD = "";
@@ -45,7 +45,7 @@ public class Work_with_Issue_and_IssueTask extends AbstractSeleniumLoginPage {
      * <p>5. Click "OK".</p>
      */
     @Test
-    public void Issue_ChangeStatus() {
+    public void changeIssueStatus() {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);
@@ -140,7 +140,7 @@ public class Work_with_Issue_and_IssueTask extends AbstractSeleniumLoginPage {
      * <p>10. Click on the "OK" button</p>
      */
     @Test
-    public void CreateIssueTask() {
+    public void createIssueTask() {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);
@@ -232,7 +232,7 @@ public class Work_with_Issue_and_IssueTask extends AbstractSeleniumLoginPage {
      * <p>7. Click on the "OK" button (Edit Issue)</p>
      */
     @Test
-    public void CreateBackport() {
+    public void createBackport() {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);
@@ -285,7 +285,7 @@ public class Work_with_Issue_and_IssueTask extends AbstractSeleniumLoginPage {
      * <p>4. Save changes to the grid</p>
      */
     @Test
-    public void Edit_status_Issue_Task_in_grid() {
+    public void editIssueTaskStatusInGrid() {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);

@@ -23,7 +23,7 @@ import javax.annotation.Resource;
 @Component
 @SeleniumTest
 
-public class Work_with_filter extends AbstractSeleniumLoginPage {
+public class WorkWithFilter extends AbstractSeleniumLoginPage {
 
     protected final static String USER_NAME = "";
     protected final static String USER_PWD = "";
@@ -43,7 +43,7 @@ public class Work_with_filter extends AbstractSeleniumLoginPage {
      * <p>10. Click on the "Ok" button</p>
      */
     @Test
-    public void ChangeLocalFilter() {
+    public void changeLocalFilter() {
         Map<String, String> vals = new HashMap<String, String>();
 
         //    View: G:Issues

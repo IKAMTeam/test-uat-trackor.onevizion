@@ -38,7 +38,7 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
      */
 
     @Test
-    public void AddInternalCommentTest(){
+    public void addInternalCommentTest(){
 
         login.login(USER_NAME, USER_PWD);
 
