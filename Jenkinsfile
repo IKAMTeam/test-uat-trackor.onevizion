@@ -1,11 +1,10 @@
-node {
-    stage('checkout') {
-      checkout scm
-    }
-    stage('prepare') {
-      sh "git clean -fdx"
-    }
-    stage('test') {
-      sh "./test.properties"
+pipeline {
+    agent any 
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo 'Hello world!' 
+            }
+        }
     }
 }
