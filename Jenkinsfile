@@ -2,9 +2,9 @@ Jenkinsfile (Declarative Pipeline)
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('Test') {
             steps {
-                bat 'echo "Hello World"'
+                echo "Hello World"
             }
         }
     }
