@@ -1,24 +1,15 @@
 package com.onevizion.guitest.test;
+
+import com.onevizion.guitest.AbstractSeleniumLoginPage;
+import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
+import com.onevizion.uitest.api.vo.ConfigFieldType;
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import com.onevizion.guitest.AbstractSeleniumLoginPage;
-import com.onevizion.uitest.api.AbstractSeleniumCore;
-import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
-import com.onevizion.uitest.api.helper.grid.Grid2;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.springframework.stereotype.Component;
-import org.testng.annotations.Test;
-
-import com.onevizion.uitest.api.annotation.SeleniumTest;
-import com.onevizion.uitest.api.vo.ConfigFieldType;
-
-import javax.annotation.Resource;
 
 public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
 
@@ -42,7 +33,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);
-        wait.waitWebElement(By.id(GRID_ID_BASE+getGridIdx()));
+        wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
         mainMenu.selectMenuItem("Issue");
         filter.clearFilter(getGridIdx());
 
@@ -52,7 +43,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
 //      1. Find a desired Issue through a quick search on "I:Summary"
         qs.searchValue(getGridIdx(), "I:Summary", "Issue for testing");
 
-        if(grid.getGridRowsCount(getGridIdx())==0)
+        if (grid.getGridRowsCount(getGridIdx()) == 0)
             throw new SeleniumUnexpectedException("Issue not found!");
 
 //      2. Click on a hyperlink in the field "I:Issue ID"
@@ -64,11 +55,11 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         wait.waitTabLoad(5L);
 
 //      4. Click on the "Add" button
-        window.openModal(By.id(BUTTON_ADD_ID_BASE+"5"));
+        window.openModal(By.id(BUTTON_ADD_ID_BASE + "5"));
         wait.waitFormLoad();
 
 //      5. In the opened window (applet) "Add Time Record", write hours into the "T:Spent Hours" field
-        tb.editField(ConfigFieldType.TEXT,"0.01",null, "fe100092729_1_0", vals,  null,1);
+        tb.editField(ConfigFieldType.TEXT, "0.01", null, "fe100092729_1_0", vals, null, 1);
 
 //      6. Click on the "OK" button
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
@@ -103,17 +94,17 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         mainMenu.selectMenuItem("Issue");
 
         //    View: G:Issues
-        if(!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))
-            view.selectByVisibleText(getGridIdx(),"G:Issues");
+        if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))
+            view.selectByVisibleText(getGridIdx(), "G:Issues");
 
         //    Filter: G:Test Android
-        if(!filter.getCurrentFilterName(getGridIdx()).equals("G:Tests Android"))
+        if (!filter.getCurrentFilterName(getGridIdx()).equals("G:Tests Android"))
             filter.selectByVisibleText("G:Tests Android", getGridIdx());
 
         //1. Find the desired Issue through a quick search on "I:Summary"
         qs.searchValue(getGridIdx(), "I:Summary", "Android: add check pdf icon for pgf files");
 
-        if(grid.getGridRowsCount(getGridIdx())==0)
+        if (grid.getGridRowsCount(getGridIdx()) == 0)
             throw new SeleniumUnexpectedException("Issue not found!");
 
         //2. Click on the hyperlink in the field "I:Issue ID"
@@ -129,16 +120,16 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
 
         //5. Write the value in the field "T:Comments"
-        tb.editField(ConfigFieldType.MEMO, "Time record was added for testing", null, "fe100092745_1_0", vals, null,1);
+        tb.editField(ConfigFieldType.MEMO, "Time record was added for testing", null, "fe100092745_1_0", vals, null, 1);
 
         //6. Write the value in the field "T:Spent Hours"
-        tb.editField(ConfigFieldType.NUMBER, "0.01", null, "fe100092729_1_0", vals, null,1);
+        tb.editField(ConfigFieldType.NUMBER, "0.01", null, "fe100092729_1_0", vals, null, 1);
 
         //7. Change the value of the field "T:Work Date"
         Date dateNow = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("MM/dd/yyyy");
 
-        tb.editField(ConfigFieldType.DATE, formatForDateNow.format(dateNow), null, "fe100092765_1_0", vals, null,1);
+        tb.editField(ConfigFieldType.DATE, formatForDateNow.format(dateNow), null, "fe100092765_1_0", vals, null, 1);
 
         //8. Click on the "OK" button
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
@@ -173,12 +164,12 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         mainMenu.selectMenuItem("Time Record");
 
         //2. Change filter G:My Time Records for the Current Month
-        if(!filter.getCurrentFilterName(getGridIdx()).equals("G:My Time Records for the Current Month"))
+        if (!filter.getCurrentFilterName(getGridIdx()).equals("G:My Time Records for the Current Month"))
             filter.selectByVisibleText("G:My Time Records for the Current Month", getGridIdx());
 
         //3. Change view G:General Info
-        if(!view.getCurrentViewName(getGridIdx()).equals("G:General Info"))
-            view.selectByVisibleText(getGridIdx(),"G:General Info");
+        if (!view.getCurrentViewName(getGridIdx()).equals("G:General Info"))
+            view.selectByVisibleText(getGridIdx(), "G:General Info");
 
         //4. Click on the hyperlink in Time Records count
         window.openModal(By.className("gridStat"));
@@ -188,11 +179,14 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         tab.goToTab(1L);
 
         //6. Change the value of the field "Columns" to "T:Spent Hours"
-        tb.editField(ConfigFieldType.DROP_DOWN,"T:Spent Hours",null, "fields", vals,  null,1);
+        tb.editField(ConfigFieldType.DROP_DOWN, "T:Spent Hours", null, "fields", vals, null, 1);
 
         //7. Check Total value
-        try { Thread.sleep(5000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
+        try {
+            Thread.sleep(5000);                 //1000 milliseconds is one second.
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
 
         //8. Click on the "Close" button
         window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));

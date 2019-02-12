@@ -1,22 +1,16 @@
 package com.onevizion.guitest.test;
-import java.awt.*;
-import java.util.*;
-import java.util.List;
 
 import com.onevizion.guitest.AbstractSeleniumLoginPage;
-import com.onevizion.uitest.api.AbstractSeleniumCore;
+import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
-import com.onevizion.uitest.api.helper.grid.Grid2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
-import com.onevizion.uitest.api.annotation.SeleniumTest;
-import com.onevizion.uitest.api.vo.ConfigFieldType;
-
-import javax.annotation.Resource;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 
 @Component
@@ -54,23 +48,23 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
         mainMenu.selectMenuItem("Invoices");
 
         //2. Change filter of the Current Month
-        if(!filter.getCurrentFilterName(getGridIdx()).equals("G:This Month Invoices"))
+        if (!filter.getCurrentFilterName(getGridIdx()).equals("G:This Month Invoices"))
             filter.selectByVisibleText("G:This Month Invoices", getGridIdx());
 
         //3. Change view G:General Info
-        if(!view.getCurrentViewName(getGridIdx()).equals("G:General Info"))
-            view.selectByVisibleText(getGridIdx(),"G:General Info");
+        if (!view.getCurrentViewName(getGridIdx()).equals("G:General Info"))
+            view.selectByVisibleText(getGridIdx(), "G:General Info");
 
         //4. Find the desired Invoices through a quick search on "INV:Invoice ID"
         Calendar now = Calendar.getInstance();   // Gets the current date and time
         int year = now.get(Calendar.YEAR);       // The current year1900
         String month = now.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH).toUpperCase();
 
-        String inv_id = year + "_"+ month + "_" + USER_NAME_SURNAME;
+        String inv_id = year + "_" + month + "_" + USER_NAME_SURNAME;
 
         qs.searchValue(getGridIdx(), "INV:Invoice ID", inv_id);
 
-        if(grid.getGridRowsCount(getGridIdx())==0)
+        if (grid.getGridRowsCount(getGridIdx()) == 0)
             throw new SeleniumUnexpectedException("Invoice: " + inv_id + " not found!");
 
         //5. Click on the hyperlink in the field "INV:Invoice ID"
@@ -92,7 +86,6 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
 
         logoff.logoff();
     }
-
 
 
 }

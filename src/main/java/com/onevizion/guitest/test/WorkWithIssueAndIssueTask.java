@@ -1,28 +1,16 @@
 package com.onevizion.guitest.test;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.onevizion.guitest.AbstractSeleniumLoginPage;
 import com.onevizion.uitest.api.AbstractSeleniumCore;
+import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
+import com.onevizion.uitest.api.vo.ConfigFieldType;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
-import com.onevizion.guitest.AbstractSeleniumDefaultPage;
-import com.onevizion.uitest.api.annotation.SeleniumTest;
-import com.onevizion.uitest.api.vo.ConfigFieldType;
-
-import javax.lang.model.element.Element;
-import javax.lang.model.util.Elements;
-
-import static com.onevizion.uitest.api.AbstractSeleniumCore.BUTTON_EDIT_ID_BASE;
-import static com.onevizion.uitest.api.AbstractSeleniumCore.BUTTON_OK_ID_BASE;
-import static com.onevizion.uitest.api.AbstractSeleniumCore.getGridIdx;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 @SeleniumTest
@@ -307,7 +295,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         //element.setFocusOnElement();
 //      3. Update the value of the IT: Status field in the grid
         //tb.editField(ConfigFieldType.DROP_DOWN, "In Progress", null, "epmDd1", vals, vals, 1);
-        tb.editCell(getGridIdx(), 0L, 4L, ConfigFieldType.DROP_DOWN, "In Progress", "", null, vals, vals, null, null );
+        tb.editCell(getGridIdx(), 0L, 4L, ConfigFieldType.DROP_DOWN, "In Progress", "", null, vals, vals, null, null);
         seleniumSettings.getWebDriver().findElement(By.id("navPowered" + getGridIdx())).click();
 
 //      4. Save changes to the grid
