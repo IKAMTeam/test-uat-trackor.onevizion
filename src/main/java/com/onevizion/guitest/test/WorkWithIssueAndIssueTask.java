@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.onevizion.uitest.api.helper.filter.Filter.BUTTON_OPEN;
+
 @Component
 @SeleniumTest
 public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
@@ -46,7 +48,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
             view.selectByVisibleText(getGridIdx(), "G:General Info");
 
 //      set filter
-        window.openModal(By.id(filter.BUTTON_OPEN + getGridIdx()));
+        window.openModal(By.id(BUTTON_OPEN.concat(getGridIdx().toString())));
         wait.waitWebElement(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE));
         wait.waitFormLoad();
 
@@ -221,7 +223,6 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
      */
     @Test
     public void createBackport() {
-        Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));

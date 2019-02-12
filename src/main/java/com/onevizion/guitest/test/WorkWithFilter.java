@@ -36,7 +36,6 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
      */
     @Test
     public void changeLocalFilter() {
-        Map<String, String> vals = new HashMap<String, String>();
 
 //        View: G:Issues
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))

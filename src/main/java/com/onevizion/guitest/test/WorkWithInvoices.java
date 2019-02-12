@@ -36,7 +36,6 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
      */
     @Test
     public void loadInvoice() {
-        Map<String, String> vals = new HashMap<String, String>();
 
         login.login(USER_NAME, USER_PWD);
 
