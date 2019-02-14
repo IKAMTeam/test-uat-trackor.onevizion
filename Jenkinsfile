@@ -2,9 +2,19 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('clone github repo') {
             steps {
-                echo 'Hello world!' 
+                git credentialsId: '2', url: 'https://github.com/TJuliaV/test-uat-trackor.onevizion' 
+            }
+        }
+        stage('clean') {
+            steps {
+                bat label: 'installation', script: 'mvn clean'
+            }
+        }
+        stage('install') {
+            steps {
+                bat label: 'installation', script: 'mvn install'
             }
         }
     }
