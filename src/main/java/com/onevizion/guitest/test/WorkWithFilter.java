@@ -8,9 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 
 @Component
 @SeleniumTest
@@ -36,6 +33,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
      */
     @Test
     public void changeLocalFilter() {
+        login.login(USER_NAME, USER_PWD);
 
 //        View: G:Issues
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))

@@ -40,7 +40,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
         login.login(USER_NAME, USER_PWD);
 
-        /**Default Page: Issue */
+//      Default Page: Issue
         mainMenu.selectMenuItem("Issue");
 
 //      View: G:General Info
@@ -76,18 +76,18 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
         window.closeModal(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE));
 
-        /** 1. In the grid, find the line corresponding to the issue. */
+        /* 1. In the grid, find the line corresponding to the issue. */
         qs.searchValue(getGridIdx(), "I:Issue ID", "BPL-136490");
 
         if (grid.getGridRowsCount(getGridIdx()) == 0)
             throw new SeleniumUnexpectedException("Issue not found!");
 
         //WebElement issue_id = seleniumSettings.getWebDriver().findElement(By.linkText("BPL-123504"));
-        /** 2. Click on the hyperlink in the "I: Issue ID" field. */
+        /* 2. Click on the hyperlink in the "I: Issue ID" field. */
         //window.openModal(issue_id);
         window.openModal(By.linkText("BPL-136490"));
 
-        /** 3. In the window that opens, in the "Ver: Version" field, select "NA". */
+        /* 3. In the window that opens, in the "Ver: Version" field, select "NA". */
         window.openModal(By.id("idx1_but"));
         wait.waitWebElement(By.id("cbSelected0"));
 
@@ -104,10 +104,10 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
         window.closeModal(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE + getGridIdx()));
 
-        /** 4. In the field "I: Status" set the value to Closed. */
+        /* 4. In the field "I: Status" set the value to Closed. */
         tb.editField(ConfigFieldType.DROP_DOWN, "Closed", null, "fe100092444_1_0", vals, null, 1);
 
-        /** 5. Click "OK". */
+        /* 5. Click "OK". */
         window.closeModal(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE));
 
         wait.waitGridLoad(getGridIdx(), getGridIdx());
