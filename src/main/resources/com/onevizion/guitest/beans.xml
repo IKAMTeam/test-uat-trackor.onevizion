@@ -71,6 +71,10 @@
         <constructor-arg type="java.lang.String" value="${test.selenium.restApiUrl:}" />
     </bean>
 
+    <bean id="restApiVersion" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="${test.selenium.restApiVersion:}" />
+    </bean>
+
     <bean id="headlessMode" class="java.lang.Boolean">
         <constructor-arg type="java.lang.String" value="${test.selenium.headlessMode:}" />
     </bean>
