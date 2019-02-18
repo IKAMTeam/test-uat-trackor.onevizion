@@ -34,7 +34,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
     @Test
     public void changeLocalFilter() {
         login.login(USER_NAME, USER_PWD);
-
+        mainMenu.selectMenuItem("Issue");
 //        View: G:Issues
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))
             view.selectByVisibleText(getGridIdx(), "G:Issues");
@@ -54,68 +54,76 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
 //        6. Click on the "OK" button
 
         String oper = seleniumSettings.getWebDriver().findElement(By.id("txtWPAttrib1")).getAttribute("value");
-        if (oper.equals("Ver:Version")) {
-            window.openModal(By.id("btnSelWPAttribValue1"));
-            //wait.waitWebElement(By.id("cbSelected0"));
-            checkbox.clickById("cbSelected0");
-            try {
-                Thread.sleep(3000);                 //1000 milliseconds is one second.
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            qs.searchValue(getGridIdx(), "Ver:Version", "19.1.0");
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
-        } else if (oper.equals("I:Status")) {
-            window.openModal(By.id("btnSelWPAttribValue1"));
-            //wait.waitWebElement(By.id("cbSelected0"));
-            checkbox.clickById("cbSelected0");
-            try {
-                Thread.sleep(3000);                 //1000 milliseconds is one second.
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            qs.searchValue(getGridIdx(), "Value", "Ready for Test, Testing in Progress");
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
-        } else
-            throw new SeleniumUnexpectedException("Filter not found");
+        switch (oper) {
+            case "Ver:Version":
+                window.openModal(By.id("btnSelWPAttribValue1"));
+                //wait.waitWebElement(By.id("cbSelected0"));
+                checkbox.clickById("cbSelected0");
+                try {
+                    Thread.sleep(3000);                 //1000 milliseconds is one second.
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                qs.searchValue(getGridIdx(), "Ver:Version", "19.1.0");
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
+                break;
+            case "I:Status":
+                window.openModal(By.id("btnSelWPAttribValue1"));
+                //wait.waitWebElement(By.id("cbSelected0"));
+                checkbox.clickById("cbSelected0");
+                try {
+                    Thread.sleep(3000);                 //1000 milliseconds is one second.
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                qs.searchValue(getGridIdx(), "Value", "Ready for Test, Testing in Progress");
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
+                break;
+            default:
+                throw new SeleniumUnexpectedException("Filter not found");
+        }
 
         oper = seleniumSettings.getWebDriver().findElement(By.id("txtWPAttrib2")).getAttribute("value");
-        if (oper.equals("Ver:Version")) {
-            window.openModal(By.id("btnTrSelWPAttribValue2"));
-            //wait.waitWebElement(By.id("cbSelected0"));
-            checkbox.clickById("cbSelected0");
-            try {
-                Thread.sleep(3000);                 //1000 milliseconds is one second.
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            qs.searchValue(getGridIdx(), "Ver:Version", "19.1.0");
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
-        } else if (oper.equals("I:Status")) {
-            window.openModal(By.id("btnSelWPAttribValue2"));
-            //wait.waitGridLoad(getGridIdx(), getGridIdx());
-            wait.waitWebElement(By.id("cbSelected0"));
-            try {
-                Thread.sleep(3000);                 //1000 milliseconds is one second.
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            qs.searchValue(getGridIdx(), "Value", "Ready for Test, Testing in Progress");
-            element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-            window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
-        } else
-            throw new SeleniumUnexpectedException("Filter not found");
+        switch (oper) {
+            case "Ver:Version":
+                window.openModal(By.id("btnTrSelWPAttribValue2"));
+                //wait.waitWebElement(By.id("cbSelected0"));
+                checkbox.clickById("cbSelected0");
+                try {
+                    Thread.sleep(3000);                 //1000 milliseconds is one second.
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                qs.searchValue(getGridIdx(), "Ver:Version", "19.1.0");
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
+                break;
+            case "I:Status":
+                window.openModal(By.id("btnSelWPAttribValue2"));
+                //wait.waitGridLoad(getGridIdx(), getGridIdx());
+                wait.waitWebElement(By.id("cbSelected0"));
+                try {
+                    Thread.sleep(3000);                 //1000 milliseconds is one second.
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                qs.searchValue(getGridIdx(), "Value", "Ready for Test, Testing in Progress");
+                element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
+                window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
+                break;
+            default:
+                throw new SeleniumUnexpectedException("Filter not found");
+        }
 
         wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
         window.closeModal(By.id(BUTTON_OK_ID_BASE));

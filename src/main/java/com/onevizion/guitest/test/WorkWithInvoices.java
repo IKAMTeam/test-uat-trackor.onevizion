@@ -34,7 +34,6 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
      */
     @Test
     public void loadInvoice() {
-
         login.login(USER_NAME, USER_PWD);
 
         //Default Page: Issue

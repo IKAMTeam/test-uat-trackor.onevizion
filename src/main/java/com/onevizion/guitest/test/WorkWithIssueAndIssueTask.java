@@ -36,7 +36,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
      */
     @Test
     public void changeIssueStatus() {
-        Map<String, String> vals = new HashMap<String, String>();
+        Map<String, String> vals = new HashMap<>();
 
         login.login(USER_NAME, USER_PWD);
 
@@ -131,7 +131,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
      */
     @Test
     public void createIssueTask() {
-        Map<String, String> vals = new HashMap<String, String>();
+        Map<String, String> vals = new HashMap<>();
 
         login.login(USER_NAME, USER_PWD);
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
@@ -275,7 +275,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
      */
     @Test
     public void editIssueTaskStatusInGrid() {
-        Map<String, String> vals = new HashMap<String, String>();
+        Map<String, String> vals = new HashMap<>();
 
         login.login(USER_NAME, USER_PWD);
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));

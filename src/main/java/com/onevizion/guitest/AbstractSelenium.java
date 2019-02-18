@@ -1,5 +1,8 @@
 package com.onevizion.guitest;
 
+import com.onevizion.uitest.api.AbstractSeleniumCore;
+import com.onevizion.uitest.api.SeleniumListener;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,9 +11,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
-
-import com.onevizion.uitest.api.AbstractSeleniumCore;
-import com.onevizion.uitest.api.SeleniumListener;
 
 @ContextConfiguration(locations = { "classpath:com/onevizion/guitest/beans.xml" })
 @Transactional(transactionManager = "transactionManager")
@@ -34,6 +34,7 @@ public abstract class AbstractSelenium extends AbstractSeleniumCore {
 
     @BeforeClass(alwaysRun = true)
     public void openBrowserAndLogin(ITestContext context) throws Exception {
+        WebDriverManager.chromedriver().setup();
         seleniumOpenBrowserAndLogin(context);
     }
 

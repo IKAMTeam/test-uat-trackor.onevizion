@@ -30,7 +30,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
 
     @Test
     public void addTimeRecord_FillOnlySpentHours() {
-        Map<String, String> vals = new HashMap<String, String>();
+        Map<String, String> vals = new HashMap<>();
 
         login.login(USER_NAME, USER_PWD);
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
@@ -88,7 +88,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
      */
     @Test
     public void addTimeRecord_with_filter_TestsAndroid() {
-        Map<String, String> vals = new HashMap<String, String>();
+        Map<String, String> vals = new HashMap<>();
 
         login.login(USER_NAME, USER_PWD);
         mainMenu.selectMenuItem("Issue");
@@ -156,7 +156,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
      */
     @Test
     public void viewTotalSpendHoursInCurrentMonth() {
-        Map<String, String> vals = new HashMap<String, String>();
+        Map<String, String> vals = new HashMap<>();
 
         login.login(USER_NAME, USER_PWD);
 
