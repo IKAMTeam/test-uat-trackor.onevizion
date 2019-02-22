@@ -1,7 +1,6 @@
 package com.onevizion.guitest.test;
 
 import com.onevizion.guitest.AbstractSeleniumLoginPage;
-import com.onevizion.uitest.api.AbstractSeleniumCore;
 import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
 import com.onevizion.uitest.api.vo.ConfigFieldType;
@@ -52,7 +51,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
         window.openModal(By.id("btnWPAttrib1"));
         qs.searchValue(getGridIdx(), "Field Name", "I:Status");
-        window.closeModal(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE));
+        window.closeModal(By.id(BUTTON_OK_ID_BASE));
 
         seleniumSettings.getWebDriver().findElement(By.id("WPOperator1")).sendKeys("<>");
 
@@ -62,7 +61,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
         window.openModal(By.id("btnWPAttrib2"));
         qs.searchValue(getGridIdx(), "Field Name", "I:Issue Type");
-        window.closeModal(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE));
+        window.closeModal(By.id(BUTTON_OK_ID_BASE));
 
         seleniumSettings.getWebDriver().findElement(By.id("WPOperator2")).sendKeys("=");
 
@@ -98,13 +97,13 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         qs.searchValue(getGridIdx(), "Ver:Version", "NA");
         checkbox.clickById("cb10009696502");
 
-        window.closeModal(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE + getGridIdx()));
+        window.closeModal(By.id(BUTTON_OK_ID_BASE + getGridIdx()));
 
         /* 4. In the field "I: Status" set the value to Closed. */
         tb.editField(ConfigFieldType.DROP_DOWN, "Closed", null, "fe100092444_1_0", vals, null, 1);
 
         /* 5. Click "OK". */
-        window.closeModal(By.id(AbstractSeleniumCore.BUTTON_OK_ID_BASE));
+        window.closeModal(By.id(BUTTON_OK_ID_BASE));
 
         wait.waitGridLoad(getGridIdx(), getGridIdx());
 
