@@ -17,7 +17,7 @@
         http://www.springframework.org/schema/cache
         http://www.springframework.org/schema/cache/spring-cache-3.2.xsd">
 
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" p:location="file:test.properties" />
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" p:location="file:test.properties" p:systemPropertiesModeName="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
 
     <bean id="testUser" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${test.selenium.user:}" />
