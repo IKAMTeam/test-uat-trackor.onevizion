@@ -13,18 +13,18 @@ pipeline {
         }
         stage('clean') {
             steps {
-                bat script: 'mvn clean'
+                sh script: 'mvn clean'
             }
         }
         stage('compile') {
             steps {
-                bat script: 'mvn compile'
+                sh script: 'mvn compile'
             }
         }
         stage('test') {
             steps {
                 withCredentials([usernamePassword(credentialsId: "$project_name", passwordVariable: 'user_password', usernameVariable: 'user_name')]) {
-                    bat "mvn exec:java -Dexec.mainClass=com.onevizion.guitest.TestNgRunAll -Dtest.selenium.user=$user_name -Dtest.selenium.password=$user_password -Dtest.selenium.serverUrl=$server_url"
+                    sh "mvn exec:java -Dexec.mainClass=com.onevizion.guitest.TestNgRunAll -Dtest.selenium.user=$user_name -Dtest.selenium.password=$user_password -Dtest.selenium.serverUrl=$server_url"
                 }
             }
         }
