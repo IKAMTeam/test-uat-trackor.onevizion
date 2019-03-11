@@ -14,7 +14,8 @@ public abstract class AbstractSeleniumDefaultPage extends AbstractSelenium {
     }
 
     @Override
-    protected final void loginIntoSystem(String userName, String password) {
+    protected final void login(String userName, String password) {
+        //protected final void loginIntoSystem(String userName, String password) { //for 19.3
         seleniumSettings.setUserProperties(new UserProperties());
         seleniumSettings.getUserProperties().setDateFormat("MM/DD/YYYY");
         seleniumSettings.getUserProperties().setJavaTimeFormat("hh:mm:ss aa");

@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.onevizion.uitest.api.helper.filter.Filter.BUTTON_OPEN;
+
 @Component
 @SeleniumTest
 public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
@@ -41,7 +43,10 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
             view.selectByVisibleText(getGridIdx(), "G:General Info");
 
 //      set filter
-        filter.openFilterForm(getGridIdx());
+        window.openModal(By.id(BUTTON_OPEN.concat(getGridIdx().toString())));
+        wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
+        wait.waitFormLoad();
+        //filter.openFilterForm(getGridIdx()); //for 19.3
 
         seleniumSettings.getWebDriver().findElement(By.name("btnClear")).click();
 
@@ -65,7 +70,8 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         checkbox.clickById("cb10009260");
         window.closeModal(By.id("btnOK0"));
 
-        filter.closeFilterFormOk(getGridIdx());
+        window.closeModal(By.id(BUTTON_OK_ID_BASE));
+        //filter.closeFilterFormOk(getGridIdx()); //for 19.3
 
         /* 1. In the grid, find the line corresponding to the issue. */
         qs.searchValue(getGridIdx(), "I:Issue ID", "BPL-136490");

@@ -36,7 +36,7 @@ public class TestNgRunAll extends TestNgRun {
         Boolean remoteWebDriver = (Boolean) ctx.getBean("remoteWebDriver");
         String restApiUrl = (String) ctx.getBean("restApiUrl");
         String restApiCredential = (String) ctx.getBean("restApiCredential");
-        String restApiVersion = (String) ctx.getBean("restApiVersion");
+        //String restApiVersion = (String) ctx.getBean("restApiVersion"); //for 19.3
         String browser = (String) ctx.getBean("browser");
         ((AbstractApplicationContext) ctx).close();
 
@@ -79,7 +79,8 @@ public class TestNgRunAll extends TestNgRun {
         long durationMinutes = TimeUnit.MILLISECONDS.toMinutes(duration);
         String durationMinutesStr = Long.toString(durationMinutes);
 
-        updateProcessResult(restApiUrl, restApiCredential, restApiVersion, processTrackorKey, browser, durationMinutesStr, testsCount);
+        updateProcessResult(restApiUrl, restApiCredential, processTrackorKey, browser, durationMinutesStr, testsCount);
+        //updateProcessResult(restApiUrl, restApiCredential, restApiVersion, processTrackorKey, browser, durationMinutesStr, testsCount); //for 19.3
     }
 
     private static String createProcessResult(String restApiUrl, String restApiCredential) {
@@ -98,7 +99,9 @@ public class TestNgRunAll extends TestNgRun {
         return processTrackorKey;
     }
 
-    private static void updateProcessResult(String restApiUrl, String restApiCredential, String restApiVersion, String processTrackorKey, String browser, String durationMinutesStr, int testsCount) {
+    //for 19.3
+    //private static void updateProcessResult(String restApiUrl, String restApiCredential, String restApiVersion, String processTrackorKey, String browser, String durationMinutesStr, int testsCount) {
+    private static void updateProcessResult(String restApiUrl, String restApiCredential, String processTrackorKey, String browser, String durationMinutesStr, int testsCount) {
         if (restApiUrl.isEmpty() || restApiCredential.isEmpty()) {
             return;
         }
@@ -108,7 +111,8 @@ public class TestNgRunAll extends TestNgRun {
         String date = format.format(cal.getTime());
 
         try {
-            CreateProcess.update(restApiUrl, restApiCredential, restApiVersion, processTrackorKey, browser, date, durationMinutesStr, testsCount);
+            //CreateProcess.update(restApiUrl, restApiCredential, restApiVersion, processTrackorKey, browser, date, durationMinutesStr, testsCount);  //for 19.3
+            CreateProcess.update(restApiUrl, restApiCredential, processTrackorKey, browser, date, durationMinutesStr, testsCount);
         } catch (Exception e) {
             logger.error("TestNgRunAll.updateProcessResult call REST API Unexpected exception: " + e.getMessage());
         }
