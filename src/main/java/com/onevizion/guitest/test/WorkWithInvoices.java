@@ -15,10 +15,6 @@ import java.util.Locale;
 @SeleniumTest
 public class WorkWithInvoices extends AbstractSeleniumLoginPage {
 
-    protected final static String USER_NAME = "";
-    protected final static String USER_PWD = "";
-    protected final static String USER_NAME_SURNAME = ""; // exaple: "JOHN_JOHNSON"
-
     /**
      * <p><b>Default Page: Issue</b></p>
      * <p><b>View: G:Issues</b></p>
@@ -34,14 +30,11 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
      */
     @Test
     public void loadInvoice() {
-        login.login(USER_NAME, USER_PWD);
-
-        //Default Page: Issue
-        //View: G:Issues
-        //Filter: G:Test Android
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
 
         //1. Go to page Invoices by main menu
-        mainMenu.selectMenuItem("Invoices");
+        mainMenu.selectMenuItem("Employee Invoices");
+        //mainMenu.selectMenuItem("Invoices");
 
         //2. Change filter of the Current Month
         if (!filter.getCurrentFilterName(getGridIdx()).equals("G:This Month Invoices"))
@@ -56,7 +49,8 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
         int year = now.get(Calendar.YEAR);       // The current year1900
         String month = now.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH).toUpperCase();
 
-        String inv_id = year + "_" + month + "_" + USER_NAME_SURNAME;
+        //seleniumSettings.getTestUserFullName();
+        String inv_id = year + "_" + month + "_" + "JULIA_TOKMAGASHEVA".toUpperCase();
 
         qs.searchValue(getGridIdx(), "INV:Invoice ID", inv_id);
 

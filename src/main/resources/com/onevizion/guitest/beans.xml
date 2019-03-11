@@ -23,6 +23,10 @@
         <constructor-arg type="java.lang.String" value="${test.selenium.user:}" />
     </bean>
 
+    <bean id="testUserFullName" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="${test.selenium.user_full_name:}" />
+    </bean>
+
     <bean id="testPassword" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${test.selenium.password:}" />
     </bean>

@@ -1,9 +1,11 @@
 package com.onevizion.guitest.test;
 
 import com.onevizion.guitest.AbstractSeleniumLoginPage;
+import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
 import com.onevizion.uitest.api.vo.ConfigFieldType;
 import org.openqa.selenium.By;
+import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
@@ -11,11 +13,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
+@SeleniumTest
 public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
-
-    protected final static String USER_NAME = "";
-    protected final static String USER_PWD = "";
-
     /**
      * <p><b>View: Default (Unsaved View)</b></p>
      * <p><b>Filter: Default (Unsaved Filter)</b></p>
@@ -31,14 +31,18 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
     @Test
     public void addTimeRecord_FillOnlySpentHours() {
         Map<String, String> vals = new HashMap<>();
-
-        login.login(USER_NAME, USER_PWD);
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
         mainMenu.selectMenuItem("Issue");
         filter.clearFilter(getGridIdx());
 
 //    View: Default (Unsaved View)
 //    Filter: Default (Unsaved Filter)
+        if (!filter.getCurrentFilterName(getGridIdx()).equals("G:All"))
+            filter.selectByVisibleText("G:All", getGridIdx());
+
+        if (!view.getCurrentViewName(getGridIdx()).equals("G:General Info"))
+            view.selectByVisibleText(getGridIdx(), "G:General Info");
 
 //      1. Find a desired Issue through a quick search on "I:Summary"
         qs.searchValue(getGridIdx(), "I:Summary", "Issue for testing");
@@ -89,8 +93,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
     @Test
     public void addTimeRecord_with_filter_TestsAndroid() {
         Map<String, String> vals = new HashMap<>();
-
-        login.login(USER_NAME, USER_PWD);
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         mainMenu.selectMenuItem("Issue");
 
         //    View: G:Issues
@@ -157,8 +160,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
     @Test
     public void viewTotalSpendHoursInCurrentMonth() {
         Map<String, String> vals = new HashMap<>();
-
-        login.login(USER_NAME, USER_PWD);
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
 
         //1. Go to page Time Record by main menu
         mainMenu.selectMenuItem("Time Record");

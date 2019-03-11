@@ -15,9 +15,6 @@ import java.util.Map;
 @SeleniumTest
 public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
-    protected final static String USER_NAME = "";
-    protected final static String USER_PWD = "";
-
     /**
      * <p><b>Default Page: Issue</b></p>
      * <p><b>View: General Info</b></p>
@@ -34,8 +31,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
     @Test
     public void changeIssueStatus() {
         Map<String, String> vals = new HashMap<>();
-
-        login.login(USER_NAME, USER_PWD);
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
 
 //      Default Page: Issue
         mainMenu.selectMenuItem("Issue");
@@ -100,7 +96,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         window.closeModal(By.id(BUTTON_OK_ID_BASE + getGridIdx()));
 
         /* 4. In the field "I: Status" set the value to Closed. */
-        tb.editField(ConfigFieldType.DROP_DOWN, "Closed", null, "fe100092444_1_0", vals, null, 1);
+        //tb.editField(ConfigFieldType.DROP_DOWN, "Closed", null, "fe100092444_1_0", vals, null, 1);
 
         /* 5. Click "OK". */
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
@@ -127,8 +123,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
     @Test
     public void createIssueTask() {
         Map<String, String> vals = new HashMap<>();
-
-        login.login(USER_NAME, USER_PWD);
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
 
         mainMenu.selectMenuItem("Issue");
@@ -218,8 +213,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
      */
     @Test
     public void createBackport() {
-
-        login.login(USER_NAME, USER_PWD);
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
 
         mainMenu.selectMenuItem("Issue");
@@ -250,7 +244,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         qs.searchValue(getGridIdx(), "Ver:Version", "8.93.1");
         if (grid.getGridRowsCount(getGridIdx()) == 0)
             throw new SeleniumUnexpectedException("Version for Backport not found!");
-        window.closeModal(By.id(BUTTON_OK_ID_BASE));
+        window.closeModal(By.id(BUTTON_OK_ID_BASE + getGridIdx()));
 
 //      6. Click on the "OK" button (Add Issue Task)
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
@@ -271,8 +265,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
     @Test
     public void editIssueTaskStatusInGrid() {
         Map<String, String> vals = new HashMap<>();
-
-        login.login(USER_NAME, USER_PWD);
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
 //      1. Open the main menu and select "Issue Task" (View: G:Default, Filter: G:Next Release)
         mainMenu.selectMenuItem("Issue Task");
@@ -285,7 +278,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         if (grid.getGridRowsCount(getGridIdx()) == 0)
             throw new SeleniumUnexpectedException("Issue Tasks not found!");
 
-        qs.searchValue(getGridIdx(), "IT:Assigned To", USER_NAME);
+        qs.searchValue(getGridIdx(), "IT:Assigned To", seleniumSettings.getTestUser());
 
 //      2. Find the desired Issue Task in the grid
         //element.setFocusOnElement();

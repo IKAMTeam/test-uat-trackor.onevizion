@@ -17,8 +17,6 @@ import com.onevizion.uitest.api.vo.ConfigFieldType;
 @Component
 @SeleniumTest
 public class AddInternalComment extends AbstractSeleniumLoginPage {
-    protected final static String USER_NAME = "";
-    protected final static String USER_PWD = "";
 
     /**
      * <p><b>Default Page: Cases</b></p>
@@ -39,14 +37,11 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
 
     @Test
     public void addInternalCommentTest(){
-
-        login.login(USER_NAME, USER_PWD);
-
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
+        mainMenu.selectMenuItem("Case");
 
         /** <b>1. Find the desired Case through a quick search on "C:Case ID"</b> */
         qs.searchValue(getGridIdx(), "C:Case ID", "104741");
-        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /** <b>2. Click on the hyperlink in the field "C:Case ID"</b> */
         WebElement myCase = seleniumSettings.getWebDriver().findElement(By.linkText("104741"));
@@ -69,14 +64,8 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         String content_comment = "This is new comment, created for testing";
         tb.editField(ConfigFieldType.MEMO, content_comment, null, "fe1000912037_1_0", vals, null, 2);
 
-        try { Thread.sleep(1500);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
-
         /** <b>5. Change the value of the field "C:Status" to "Awaiting Info(Internal)"</b> */
         tb.editField(ConfigFieldType.DROP_DOWN, "Awaiting Info(Internal)", null, "fe100099547_1_0", vals, null, 2);
-
-        try { Thread.sleep(1500);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /** <b>6. Click on the "OK" button</b> */
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
@@ -105,18 +94,12 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         /**<b>10. Verify that the value of the "C:Status" field is "Awaiting Info" (Internal)</b> */
         tb.checkField(ConfigFieldType.DROP_DOWN, "fe100099547_1_0", vals, 2, true, false );
 
-        try { Thread.sleep(5000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
-
         /**<b>11. Click on the "Cancel" button</b> */
         window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));
 
         wait.waitGridLoad(getGridIdx(), getGridIdx());
 
         logoff.logoff();
-
-        try { Thread.sleep(1000);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
     }
 
 }

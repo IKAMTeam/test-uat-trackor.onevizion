@@ -14,9 +14,6 @@ import org.testng.annotations.Test;
 
 public class WorkWithFilter extends AbstractSeleniumLoginPage {
 
-    protected final static String USER_NAME = "";
-    protected final static String USER_PWD = "";
-
     /**
      * <p><b>Default Page: Issue</b></p>
      * <p><b>View: G:Issues</b></p>
@@ -33,7 +30,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
      */
     @Test
     public void changeLocalFilter() {
-        login.login(USER_NAME, USER_PWD);
+        login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         mainMenu.selectMenuItem("Issue");
 //        View: G:Issues
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))
