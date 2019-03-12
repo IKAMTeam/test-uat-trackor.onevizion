@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 
 @Component
 @SeleniumTest
-
 public class WorkWithFilter extends AbstractSeleniumLoginPage {
 
     /**
@@ -36,7 +35,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))
             view.selectByVisibleText(getGridIdx(), "G:Issues");
 
-//        Filter: L:Actual (I:Status = Ready for Test, Testing in Progress; Ver:Version = 19.1.0)
+//        Filter: L:Actual (I:Status = Ready for Test, Testing in Progress; Ver:Version = 19.3.0)
         if (!filter.getCurrentFilterName(getGridIdx()).equals("L:Actual"))
             filter.selectByVisibleText("L:Actual", getGridIdx());
 
@@ -63,7 +62,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
                 }
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-                qs.searchValue(getGridIdx(), "Ver:Version", "19.1.0");
+                qs.searchValue(getGridIdx(), "Ver:Version", "19.3.0");
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
                 break;
@@ -99,7 +98,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
                 }
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
-                qs.searchValue(getGridIdx(), "Ver:Version", "19.1.0");
+                qs.searchValue(getGridIdx(), "Ver:Version", "19.3.0");
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 window.closeModal(By.id(BUTTON_OK_ID_BASE + "0"));
                 break;

@@ -1,14 +1,15 @@
 #!/usr/bin/env groovy
-def url_repo = 'https://github.com/TJuliaV/test-uat-trackor.onevizion'
+def url_repo = 'https://github.com/IKAMTeam/test-uat-trackor.onevizion'
 def server_url = 'https://uat-trackor.onevizion.com/Default.do'
+def branch = '19.2'
 def strings = url_repo.split('/')
 def project_name = strings[strings.length-1]
 pipeline {
     agent any
     stages {
-        stage ('Clone') {
+        stage ('clone') {
             steps {
-                git credentialsId: 'onevizion-github', url: "$url_repo"
+                git credentialsId: 'onevizion-github', url: url_repo, branch: branch
             }
         }
         stage('clean') {

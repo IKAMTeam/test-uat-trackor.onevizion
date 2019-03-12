@@ -6,7 +6,7 @@
     <groupId>com.onevizion</groupId>
     <artifactId>test-uat-trackor.onevizion</artifactId>
     <packaging>jar</packaging>
-    <version>19.2.0</version>
+    <version>19.3-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.onevizion</groupId>
             <artifactId>ui-test-api</artifactId>
-            <version>19.2.0</version>
+            <version>19.3-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
@@ -27,12 +27,6 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>3.3.0</version>
-        </dependency>
-        <!-- for 19.2.0 -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.6</version>
         </dependency>
     </dependencies>
 

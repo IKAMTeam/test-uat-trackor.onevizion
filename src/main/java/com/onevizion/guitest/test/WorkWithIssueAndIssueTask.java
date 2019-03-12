@@ -11,8 +11,6 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.onevizion.uitest.api.helper.filter.Filter.BUTTON_OPEN;
-
 @Component
 @SeleniumTest
 public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
@@ -43,10 +41,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
             view.selectByVisibleText(getGridIdx(), "G:General Info");
 
 //      set filter
-        window.openModal(By.id(BUTTON_OPEN.concat(getGridIdx().toString())));
-        wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
-        wait.waitFormLoad();
-        //filter.openFilterForm(getGridIdx()); //for 19.3
+        filter.openFilterForm(getGridIdx());
 
         seleniumSettings.getWebDriver().findElement(By.name("btnClear")).click();
 
