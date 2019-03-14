@@ -30,7 +30,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
      */
     @Test
     public void changeIssueStatus() {
-        Map<String, String> vals = new HashMap<>();
+
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
 
 //      Default Page: Issue
