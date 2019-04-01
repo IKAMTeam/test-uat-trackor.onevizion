@@ -104,7 +104,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
                 break;
             case "I:Status":
                 window.openModal(By.id("btnSelWPAttribValue2"));
-                //wait.waitGridLoad(getGridIdx(), getGridIdx());
+                //grid2.waitLoad(getGridIdx(), getGridIdx());
                 wait.waitWebElement(By.id("cbSelected0"));
                 try {
                     Thread.sleep(3000);                 //1000 milliseconds is one second.
@@ -137,7 +137,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
         wait.waitWebElement(By.id("filterDialogOk0"));
         element.clickById("filterDialogOk0");
 
-        wait.waitGridLoad(getGridIdx(), getGridIdx());
+        grid2.waitLoad(getGridIdx());
 
         logoff.logoff();
     }

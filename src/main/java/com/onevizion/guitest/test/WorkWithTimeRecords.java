@@ -71,7 +71,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
 //      7. Click on the "OK" button
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
 
-        wait.waitGridLoad(getGridIdx(), getGridIdx());
+        grid2.waitLoad(getGridIdx());
 
         logoff.logoff();
 
@@ -142,7 +142,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
         //window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));
 
-        wait.waitGridLoad(getGridIdx(), getGridIdx());
+        grid2.waitLoad(getGridIdx());
 
         logoff.logoff();
     }
@@ -193,7 +193,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         //8. Click on the "Close" button
         window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));
 
-        wait.waitGridLoad(getGridIdx(), getGridIdx());
+        grid2.waitLoad(getGridIdx());
 
         logoff.logoff();
     }

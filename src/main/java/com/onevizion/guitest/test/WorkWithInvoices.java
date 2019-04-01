@@ -72,7 +72,7 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
         //7. Click on the "Cancel" button
         window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));
 
-        wait.waitGridLoad(getGridIdx(), getGridIdx());
+        grid2.waitLoad(getGridIdx());
 
         logoff.logoff();
     }

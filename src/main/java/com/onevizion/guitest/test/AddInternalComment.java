@@ -69,7 +69,7 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
 
         /** <b>6. Click on the "OK" button</b> */
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
-        wait.waitGridLoad(getGridIdx(), getGridIdx());
+        grid2.waitLoad(getGridIdx());
 
         /** <b>7. Click on the hyperlink in the "C:Case ID" field of the edited Case.</b> */
         myCase = seleniumSettings.getWebDriver().findElement(By.linkText("104741"));
@@ -97,7 +97,7 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         /**<b>11. Click on the "Cancel" button</b> */
         window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));
 
-        wait.waitGridLoad(getGridIdx(), getGridIdx());
+        grid2.waitLoad(getGridIdx());
 
         logoff.logoff();
     }
