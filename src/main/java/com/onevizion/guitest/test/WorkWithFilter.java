@@ -137,7 +137,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
         wait.waitWebElement(By.id("filterDialogOk0"));
         element.clickById("filterDialogOk0");
 
-        grid2.waitLoad(getGridIdx());
+        grid2.waitLoad();
 
         logoff.logoff();
     }

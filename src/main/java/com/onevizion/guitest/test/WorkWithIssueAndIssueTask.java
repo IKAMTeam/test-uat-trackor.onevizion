@@ -84,11 +84,11 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         wait.waitWebElement(By.id("cbSelected0"));
 
         checkbox.clickById("cbSelected0");
-        grid2.waitLoad(getGridIdx());
+        grid2.waitLoad();
         element.clickById("SelectCheckboxes0");
         element.clickById("SelectCheckboxes0");
         checkbox.clickById("cbSelected0");
-        grid2.waitLoad(getGridIdx());
+        grid2.waitLoad();
 
         //seleniumSettings.getWebDriver().findElement(By.id("navNext0")).click();
         qs.searchValue(getGridIdx(), "Ver:Version", "NA");
@@ -102,7 +102,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         /* 5. Click "OK". */
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
 
-        grid2.waitLoad(getGridIdx());
+        grid2.waitLoad();
 
         logoff.logoff();
     }
@@ -196,7 +196,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 //      10. Click on the "OK" button
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
 
-        grid2.waitLoad(getGridIdx());
+        grid2.waitLoad();
         logoff.logoff();
     }
 
@@ -240,7 +240,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         wait.waitWebElement(By.name("fe1000913084_1_0_but"));
 
         window.openModal(By.name("fe1000913084_1_0_but"));
-        grid2.waitLoad(getGridIdx());
+        grid2.waitLoad();
 
         qs.searchValue(getGridIdx(), "Ver:Version", "8.93.1");
         if (grid.getGridRowsCount(getGridIdx()) == 0)
@@ -253,7 +253,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 //      7. Click on the "OK" button (Edit Issue)
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
 
-        grid2.waitLoad(getGridIdx());
+        grid2.waitLoad();
         logoff.logoff();
     }
 
@@ -297,7 +297,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
             Thread.currentThread().interrupt();
         }
 
-        grid2.waitLoad(getGridIdx());
+        grid2.waitLoad();
 
         logoff.logoff();
     }
