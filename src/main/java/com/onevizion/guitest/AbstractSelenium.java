@@ -27,6 +27,11 @@ public abstract class AbstractSelenium extends AbstractSeleniumCore {
         
     }
 
+    @Override
+    protected final String getErrorReport() {
+        return "";
+    }
+
     @BeforeSuite(alwaysRun = true)
     public void prepare(ITestContext context) throws Exception {
         
