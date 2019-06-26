@@ -40,7 +40,7 @@ public class TestNgRunAll extends TestNgRun {
         String browser = (String) ctx.getBean("browser");
         ((AbstractApplicationContext) ctx).close();
 
-        String processTrackorKey = createProcessResult(restApiUrl, restApiCredential);
+        String processTrackorKey = createProcessResult(restApiUrl, restApiCredential, restApiVersion, browser);
 
         checkAnnotationInTests(new File(mainFolderWithTests));
 
@@ -66,6 +66,7 @@ public class TestNgRunAll extends TestNgRun {
 
         int testsCount = suiteParallel.getTests().size();
         logger.info("Number of tests " + testsCount);
+        updateProcessResult(restApiUrl, restApiCredential, processTrackorKey, testsCount);
 
         List<XmlSuite> suites = new ArrayList<XmlSuite>();
         suites.add(suiteParallel);
@@ -79,18 +80,22 @@ public class TestNgRunAll extends TestNgRun {
         long durationMinutes = TimeUnit.MILLISECONDS.toMinutes(duration);
         String durationMinutesStr = Long.toString(durationMinutes);
 
-        updateProcessResult(restApiUrl, restApiCredential, restApiVersion, processTrackorKey, browser, durationMinutesStr, testsCount); //for 19.3
+        updateProcessResult(restApiUrl, restApiCredential, processTrackorKey, durationMinutesStr);
     }
 
-    private static String createProcessResult(String restApiUrl, String restApiCredential) {
+    private static String createProcessResult(String restApiUrl, String restApiCredential, String restApiVersion, String browser) {
         if (restApiUrl.isEmpty() || restApiCredential.isEmpty()) {
             return null;
         }
 
         String processTrackorKey = null;
 
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String date = format.format(cal.getTime());
+
         try {
-            processTrackorKey = CreateProcess.create(restApiUrl, restApiCredential);
+            processTrackorKey = CreateProcess.create(restApiUrl, restApiCredential, restApiVersion, browser, date);
         } catch (Exception e) {
             logger.error("TestNgRunAll.createProcessResult call REST API Unexpected exception: " + e.getMessage());
         }
@@ -98,17 +103,25 @@ public class TestNgRunAll extends TestNgRun {
         return processTrackorKey;
     }
 
-    private static void updateProcessResult(String restApiUrl, String restApiCredential, String restApiVersion, String processTrackorKey, String browser, String durationMinutesStr, int testsCount) {
+    private static void updateProcessResult(String restApiUrl, String restApiCredential, String processTrackorKey, int testsCount) {
         if (restApiUrl.isEmpty() || restApiCredential.isEmpty()) {
             return;
         }
 
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String date = format.format(cal.getTime());
+        try {
+            CreateProcess.update(restApiUrl, restApiCredential, processTrackorKey, testsCount);
+        } catch (Exception e) {
+            logger.error("TestNgRunAll.updateProcessResult call REST API Unexpected exception: " + e.getMessage());
+        }
+    }
+
+    private static void updateProcessResult(String restApiUrl, String restApiCredential, String processTrackorKey, String durationMinutesStr) {
+        if (restApiUrl.isEmpty() || restApiCredential.isEmpty()) {
+            return;
+        }
 
         try {
-            CreateProcess.update(restApiUrl, restApiCredential, restApiVersion, processTrackorKey, browser, date, durationMinutesStr, testsCount);
+            CreateProcess.update(restApiUrl, restApiCredential, processTrackorKey, durationMinutesStr);
         } catch (Exception e) {
             logger.error("TestNgRunAll.updateProcessResult call REST API Unexpected exception: " + e.getMessage());
         }
