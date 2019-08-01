@@ -79,6 +79,10 @@
         <constructor-arg type="java.lang.String" value="${test.selenium.headlessMode:}" />
     </bean>
 
+    <bean id="codeCoverage" class="java.lang.Boolean">
+        <constructor-arg type="java.lang.String" value="${test.selenium.codeCoverage:}" />
+    </bean>
+
     <bean id="serverUrl" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${test.selenium.serverUrl:}" />
     </bean>
