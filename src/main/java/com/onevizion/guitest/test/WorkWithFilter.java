@@ -5,11 +5,8 @@ import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
-import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
-
-@Component
 @SeleniumTest
 public class WorkWithFilter extends AbstractSeleniumLoginPage {
 

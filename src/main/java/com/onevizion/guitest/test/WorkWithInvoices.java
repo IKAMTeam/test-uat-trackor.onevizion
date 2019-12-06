@@ -4,14 +4,11 @@ import com.onevizion.guitest.AbstractSeleniumLoginPage;
 import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
 import org.openqa.selenium.By;
-import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
 import java.util.Calendar;
 import java.util.Locale;
 
-
-@Component
 @SeleniumTest
 public class WorkWithInvoices extends AbstractSeleniumLoginPage {
 

@@ -5,13 +5,11 @@ import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
 import com.onevizion.uitest.api.vo.ConfigFieldType;
 import org.openqa.selenium.By;
-import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
 @SeleniumTest
 public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
 @ContextConfiguration(locations = { "classpath:com/onevizion/guitest/beans.xml" })
@@ -30,11 +29,6 @@ public abstract class AbstractSelenium extends AbstractSeleniumCore {
     @Override
     protected final String getErrorReport() {
         return "";
-    }
-
-    @BeforeSuite(alwaysRun = true)
-    public void prepare(ITestContext context) throws Exception {
-        
     }
 
     @BeforeClass(alwaysRun = true)

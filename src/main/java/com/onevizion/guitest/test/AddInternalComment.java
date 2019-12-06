@@ -7,14 +7,11 @@ import com.onevizion.guitest.AbstractSeleniumLoginPage;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
 import com.onevizion.uitest.api.annotation.SeleniumTest;
 import com.onevizion.uitest.api.vo.ConfigFieldType;
 
-
-@Component
 @SeleniumTest
 public class AddInternalComment extends AbstractSeleniumLoginPage {
 
