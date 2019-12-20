@@ -2,14 +2,10 @@ package com.onevizion.guitest;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.ApplicationContext;
@@ -27,8 +23,6 @@ import com.onevizion.uitest.api.restapi.CreateProcess;
 public class TestNgRunAll extends TestNgRun {
 
     public static void main(String[] args) throws ClassNotFoundException, IOException {
-        Date startDate = Calendar.getInstance().getTime();
-
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:com/onevizion/guitest/beans.xml");
         String screenshotsPath = (String) ctx.getBean("screenshotsPath");
         String ciAddr = (String) ctx.getBean("ciAddr");
@@ -75,12 +69,7 @@ public class TestNgRunAll extends TestNgRun {
         testNg.setAnnotationTransformer(new SeleniumAnnotationTransformer());
         testNg.run();
 
-        Date finishDate = Calendar.getInstance().getTime();
-        long duration = finishDate.getTime() - startDate.getTime();
-        long durationMinutes = TimeUnit.MILLISECONDS.toMinutes(duration);
-        String durationMinutesStr = Long.toString(durationMinutes);
-
-        updateProcessDuration(restApiUrl, restApiCredential, processTrackorKey, durationMinutesStr);
+        updateProcess(restApiUrl, restApiCredential, processTrackorKey);
     }
 
     private static String createProcess(String restApiUrl, String restApiCredential, String restApiVersion, String browser) {
@@ -90,12 +79,8 @@ public class TestNgRunAll extends TestNgRun {
 
         String processTrackorKey = null;
 
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String date = format.format(cal.getTime());
-
         try {
-            processTrackorKey = CreateProcess.create(restApiUrl, restApiCredential, restApiVersion, browser, date);
+            processTrackorKey = CreateProcess.create(restApiUrl, restApiCredential, restApiVersion, browser);
         } catch (Exception e) {
             logger.error("TestNgRunAll.createProcess call REST API Unexpected exception: " + e.getMessage());
         }
@@ -115,15 +100,15 @@ public class TestNgRunAll extends TestNgRun {
         }
     }
 
-    private static void updateProcessDuration(String restApiUrl, String restApiCredential, String processTrackorKey, String durationMinutesStr) {
+    private static void updateProcess(String restApiUrl, String restApiCredential, String processTrackorKey) {
         if (restApiUrl.isEmpty() || restApiCredential.isEmpty()) {
             return;
         }
 
         try {
-            CreateProcess.updateDuration(restApiUrl, restApiCredential, processTrackorKey, durationMinutesStr);
+            CreateProcess.update(restApiUrl, restApiCredential, processTrackorKey);
         } catch (Exception e) {
-            logger.error("TestNgRunAll.updateProcessDuration call REST API Unexpected exception: " + e.getMessage());
+            logger.error("TestNgRunAll.updateProcess call REST API Unexpected exception: " + e.getMessage());
         }
     }
 
