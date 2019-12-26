@@ -27,10 +27,6 @@
         <constructor-arg type="java.lang.String" value="${test.selenium.password:}" />
     </bean>
 
-    <bean id="testPasswordApiV3" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${test.selenium.passwordApiV3:}" />
-    </bean>
-
     <bean id="remoteWebDriver" class="java.lang.Boolean">
         <constructor-arg type="java.lang.String" value="${test.selenium.remoteWebDriver:}" />
     </bean>
