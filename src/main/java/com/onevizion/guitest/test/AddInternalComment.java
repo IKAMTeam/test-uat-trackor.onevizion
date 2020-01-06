@@ -35,7 +35,7 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
     @Test
     public void addInternalCommentTest(){
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
-        mainMenu.selectMenuItem("Case");
+        mainMenu.openMenuItemAndWaitGridLoad("Case");
 
         /** <b>1. Find the desired Case through a quick search on "C:Case ID"</b> */
         qs.searchValue(getGridIdx(), "C:Case ID", "104741");

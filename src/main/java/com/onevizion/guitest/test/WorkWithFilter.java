@@ -27,7 +27,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
     @Test
     public void changeLocalFilter() {
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
-        mainMenu.selectMenuItem("Issue");
+        mainMenu.openMenuItemAndWaitGridLoad("Issue");
 //        View: G:Issues
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))
             view.selectByVisibleText(getGridIdx(), "G:Issues");

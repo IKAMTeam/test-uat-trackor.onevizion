@@ -31,7 +31,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         Map<String, String> vals = new HashMap<>();
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
-        mainMenu.selectMenuItem("Issue");
+        mainMenu.openMenuItemAndWaitGridLoad("Issue");
         filter.clearFilter(getGridIdx());
 
 //    View: Default (Unsaved View)
@@ -92,7 +92,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
     public void addTimeRecord_with_filter_TestsAndroid() {
         Map<String, String> vals = new HashMap<>();
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
-        mainMenu.selectMenuItem("Issue");
+        mainMenu.openMenuItemAndWaitGridLoad("Issue");
 
         //    View: G:Issues
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))
@@ -161,7 +161,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
 
         //1. Go to page Time Record by main menu
-        mainMenu.selectMenuItem("Time Record");
+        mainMenu.openMenuItemAndWaitGridLoad("Time Record");
 
         //2. Change filter G:My Time Records for the Current Month
         if (!filter.getCurrentFilterName(getGridIdx()).equals("G:My Time Records for the Current Month"))

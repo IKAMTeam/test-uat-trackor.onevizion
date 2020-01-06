@@ -30,8 +30,8 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
 
         //1. Go to page Invoices by main menu
-        mainMenu.selectMenuItem("Employee Invoices");
-        //mainMenu.selectMenuItem("Invoices");
+        mainMenu.openMenuItemAndWaitGridLoad("Employee Invoices");
+        //mainMenu.openMenuItemAndWaitGridLoad("Invoices");
 
         //2. Change filter of the Current Month
         if (!filter.getCurrentFilterName(getGridIdx()).equals("G:This Month Invoices"))

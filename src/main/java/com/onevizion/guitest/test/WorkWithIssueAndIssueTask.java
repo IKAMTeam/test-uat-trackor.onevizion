@@ -32,7 +32,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
 
 //      Default Page: Issue
-        mainMenu.selectMenuItem("Issue");
+        mainMenu.openMenuItemAndWaitGridLoad("Issue");
 
 //      View: G:General Info
         if (!view.getCurrentViewName(getGridIdx()).equals("G:General Info"))
@@ -125,7 +125,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
 
-        mainMenu.selectMenuItem("Issue");
+        mainMenu.openMenuItemAndWaitGridLoad("Issue");
 //      View: G:Issues
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Issues"))
             view.selectByVisibleText(getGridIdx(), "G:Issues");
@@ -215,7 +215,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
 
-        mainMenu.selectMenuItem("Issue");
+        mainMenu.openMenuItemAndWaitGridLoad("Issue");
 
         if (!view.getCurrentViewName(getGridIdx()).equals("G:General Info"))
             view.selectByVisibleText(getGridIdx(), "G:General Info");
@@ -267,7 +267,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
 //      1. Open the main menu and select "Issue Task" (View: G:Default, Filter: G:Next Release)
-        mainMenu.selectMenuItem("Issue Task");
+        mainMenu.openMenuItemAndWaitGridLoad("Issue Task");
         if (!view.getCurrentViewName(getGridIdx()).equals("G:Default"))
             view.selectByVisibleText(getGridIdx(), "G:Default");
 
