@@ -287,7 +287,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         seleniumSettings.getWebDriver().findElement(By.id("navPowered" + getGridIdx())).click();
 
 //      4. Save changes to the grid
-        element.clickById(BUTTON_SAVE_GRID_ID_BASE + getGridIdx());
+        grid2.saveChanges(getGridIdx());
 
         try {
             Thread.sleep(1500);                 //1000 milliseconds is one second.
