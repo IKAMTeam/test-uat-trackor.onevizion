@@ -1,7 +1,5 @@
 package com.onevizion.guitest;
 
-import com.onevizion.uitest.api.UserProperties;
-
 public abstract class AbstractSeleniumLoginPage extends AbstractSelenium {
 
     public AbstractSeleniumLoginPage() {
@@ -15,12 +13,8 @@ public abstract class AbstractSeleniumLoginPage extends AbstractSelenium {
 
     @Override
     protected final void loginIntoSystem(String userName, String password) {
-        seleniumSettings.setUserProperties(new UserProperties());
-        seleniumSettings.getUserProperties().setDateFormat("MM/DD/YYYY");
-        seleniumSettings.getUserProperties().setJavaTimeFormat("hh:mm:ss aa");
+        
     }
-
-
 
     @Override
     protected void dataPreparation() {

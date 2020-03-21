@@ -2,6 +2,8 @@ package com.onevizion.guitest;
 
 import com.onevizion.uitest.api.AbstractSeleniumCore;
 import com.onevizion.uitest.api.SeleniumListener;
+import com.onevizion.uitest.api.UserProperties;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
@@ -24,6 +26,13 @@ public abstract class AbstractSelenium extends AbstractSeleniumCore {
     @Override
     protected final void fillGlobalSettings() {
         
+    }
+
+    @Override
+    protected final void fillUserSettings(String userName) {
+        seleniumSettings.setUserProperties(new UserProperties());
+        seleniumSettings.getUserProperties().setDateFormat("MM/DD/YYYY");
+        seleniumSettings.getUserProperties().setJavaTimeFormat("hh:mm:ss aa");
     }
 
     @Override
