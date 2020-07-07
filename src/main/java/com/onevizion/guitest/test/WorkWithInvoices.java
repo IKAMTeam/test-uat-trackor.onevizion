@@ -21,7 +21,6 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
      * <p>3. Change view G:General Info</p>
      * <p>4. Find the desired Invoices through a quick search on "INV:Invoice ID"</p>
      * <p>5. Click on the hyperlink in the field "INV:Invoice ID"</p>
-     * <p>6. In the opened window "Edit Employee Invoice" go to the tab "INV:General Info"</p>
      * <p>5. Download file of the field "INV:Invoice for Bank</p>
      * <p>7. Click on the "Cancel" button</p>
      */
@@ -57,10 +56,7 @@ public class WorkWithInvoices extends AbstractSeleniumLoginPage {
         //5. Click on the hyperlink in the field "INV:Invoice ID"
         window.openModal(seleniumSettings.getWebDriver().findElement(By.linkText(inv_id)));
         wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
-
-        //6. In the opened window "Edit Employee Invoice" go to the tab "INV:General Info"
-        tab.goToTab(1L);
-        wait.waitTabLoad(1L);
+        tab.waitLoad(1);
 
         // 5. Download file of the field "INV:Invoice for Bank
         // !!! THIS ITEM HASN`T BEEN VERIFIED

@@ -53,8 +53,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         wait.waitFormLoad();
 
 //      3. In the opened window (applet) "Edit Issue", go to the tab "T:Time Record"
-        tab.goToTab(5L);
-        wait.waitTabLoad(5L);
+        tab.goToTab(5);
 
 //      4. Click on the "Add" button
         window.openModal(By.id(BUTTON_ADD_ID_BASE + "5"));
@@ -113,8 +112,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
 
         //3. In the opened window (applet) "Edit Issue" go to the tab "T:Time Record"
-        tab.goToTab(4L);
-        wait.waitTabLoad(4L);
+        tab.goToTab(4);
 
         //4. Click on the Add button
         window.openModal(By.id("btnAdd4"));
@@ -150,7 +148,6 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
      * <p>2. Change filter G:My Time Records for the Current Month</p>
      * <p>3. Change view G:General Info</p>
      * <p>4. Click on the hyperlink in Time Records count</p>
-     * <p>5. In the opened window (grid stat page) "Edit Case" go to the tab "General"</p>
      * <p>6. Change the value of the field "Columns" to "T:Spent Hours" </p>
      * <p>7. Check Total value</p>
      * <p>8. Click on the "Close" button</p>
@@ -174,9 +171,6 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         //4. Click on the hyperlink in Time Records count
         window.openModal(By.className("gridStat"));
         wait.waitWebElement(By.id(BUTTON_CANCEL_ID_BASE));
-
-        //5. In the opened window (grid stat page) "Edit Case" go to the tab "General"
-        tab.goToTab(1L);
 
         //6. Change the value of the field "Columns" to "T:Spent Hours"
         tb.editField(ConfigFieldType.DROP_DOWN, "T:Spent Hours", null, "fields", vals, null, 1);

@@ -43,12 +43,12 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         /** <b>2. Click on the hyperlink in the field "C:Case ID"</b> */
         WebElement myCase = seleniumSettings.getWebDriver().findElement(By.linkText("104741"));
         window.openModal(myCase);
-        wait.waitTabLoad(1L);
+        tab.waitLoad(1);
 //        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
 //        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /** <b>3. In the opened window (applet) "Edit Case" go to the tab "C:Case Info"</b> */
-        tab.goToTab(2L);
+        tab.goToTab(2);
 
         element.moveToElement(seleniumSettings.getWebDriver().findElement(By.name("fe100099547_1_0")));
 
@@ -72,9 +72,8 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         myCase = seleniumSettings.getWebDriver().findElement(By.linkText("104741"));
 
         window.openModal(myCase);
-        wait.waitTabLoad(1L);
-        tab.goToTab(2L);
-        wait.waitTabLoad(2L);
+        tab.waitLoad(1);
+        tab.goToTab(2);
 
         element.moveToElement(seleniumSettings.getWebDriver().findElement(By.name("fe100099547_1_0")));
 
