@@ -281,7 +281,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         //element.setFocusOnElement();
 //      3. Update the value of the IT: Status field in the grid
         //tb.editField(ConfigFieldType.DROP_DOWN, "In Progress", null, "epmDd1", vals, vals, 1);
-        tb.editCell(getGridIdx(), 0, 4, ConfigFieldType.DROP_DOWN, "In Progress", "", null, vals, vals, null, null);
+        tb.editCell(getGridIdx(), 0, 4, ConfigFieldType.DROP_DOWN, "In Progress", "", null, vals, vals);
         seleniumSettings.getWebDriver().findElement(By.id("navPowered" + getGridIdx())).click();
 
 //      4. Save changes to the grid
