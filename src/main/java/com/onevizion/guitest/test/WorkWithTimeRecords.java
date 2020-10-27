@@ -176,11 +176,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         tb.editField(ConfigFieldType.DROP_DOWN, "T:Spent Hours", null, "fields", vals, null, 1);
 
         //7. Check Total value
-        try {
-            Thread.sleep(5000);                 //1000 milliseconds is one second.
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        sleep(5000L);
 
         //8. Click on the "Close" button
         window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));

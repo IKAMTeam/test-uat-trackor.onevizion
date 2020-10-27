@@ -44,8 +44,6 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         WebElement myCase = seleniumSettings.getWebDriver().findElement(By.linkText("104741"));
         window.openModal(myCase);
         tab.waitLoad(1);
-//        try { Thread.sleep(3000);                 //1000 milliseconds is one second.
-//        } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
 
         /** <b>3. In the opened window (applet) "Edit Case" go to the tab "C:Case Info"</b> */
         tab.goToTab(2);

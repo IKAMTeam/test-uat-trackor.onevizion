@@ -52,11 +52,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
                 window.openModal(By.id("btnSelWPAttribValue1"));
                 //wait.waitWebElement(By.id("cbSelected0"));
                 checkbox.clickById("cbSelected0");
-                try {
-                    Thread.sleep(3000);                 //1000 milliseconds is one second.
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
+                sleep(3000L);
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 qs.searchValue(getGridIdx(), "Ver:Version", "19.3.0");
@@ -67,11 +63,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
                 window.openModal(By.id("btnSelWPAttribValue1"));
                 //wait.waitWebElement(By.id("cbSelected0"));
                 checkbox.clickById("cbSelected0");
-                try {
-                    Thread.sleep(3000);                 //1000 milliseconds is one second.
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
+                sleep(3000L);
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 qs.searchValue(getGridIdx(), "Value", "Ready for Test, Testing in Progress");
@@ -88,11 +80,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
                 window.openModal(By.id("btnTrSelWPAttribValue2"));
                 //wait.waitWebElement(By.id("cbSelected0"));
                 checkbox.clickById("cbSelected0");
-                try {
-                    Thread.sleep(3000);                 //1000 milliseconds is one second.
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
+                sleep(3000L);
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 qs.searchValue(getGridIdx(), "Ver:Version", "19.3.0");
@@ -103,11 +91,7 @@ public class WorkWithFilter extends AbstractSeleniumLoginPage {
                 window.openModal(By.id("btnSelWPAttribValue2"));
                 //grid2.waitLoad(getGridIdx(), getGridIdx());
                 wait.waitWebElement(By.id("cbSelected0"));
-                try {
-                    Thread.sleep(3000);                 //1000 milliseconds is one second.
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
+                sleep(3000L);
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 element.click(seleniumSettings.getWebDriver().findElement(By.id("SelectCheckboxes0")));
                 qs.searchValue(getGridIdx(), "Value", "Ready for Test, Testing in Progress");

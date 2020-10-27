@@ -169,11 +169,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
 
         wait.waitWebElement(By.className("gridStat"));
-        try {
-            Thread.sleep(5000);                 //1000 milliseconds is one second.
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        sleep(5000L);
 
         long rows_count_after = grid.getGridRowsCount(4L);
 
@@ -287,11 +283,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 //      4. Save changes to the grid
         grid2.saveChanges(getGridIdx());
 
-        try {
-            Thread.sleep(1500);                 //1000 milliseconds is one second.
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        sleep(1500L);
 
         grid2.waitLoad();
 
