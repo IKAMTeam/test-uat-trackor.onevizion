@@ -15,6 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.testng.TestNG;
 import org.testng.xml.XmlSuite;
+import org.testng.xml.XmlSuite.ParallelMode;
 
 import com.onevizion.uitest.api.SeleniumAnnotationTransformer;
 import com.onevizion.uitest.api.annotation.SeleniumTest;
@@ -46,7 +47,7 @@ public class TestNgRunAll extends TestNgRun {
 
         XmlSuite suiteParallel = new XmlSuite();
         suiteParallel.setName("Selenium tests suite parallel");
-        suiteParallel.setParallel("tests");
+        suiteParallel.setParallel(ParallelMode.TESTS);
         suiteParallel.setThreadCount(1);
         suiteParallel.setParameters(suiteParams);
 
@@ -66,7 +67,7 @@ public class TestNgRunAll extends TestNgRun {
         suites.add(suiteParallel);
         TestNG testNg = new TestNG();
         testNg.setXmlSuites(suites);
-        testNg.setAnnotationTransformer(new SeleniumAnnotationTransformer());
+        testNg.addListener(new SeleniumAnnotationTransformer());
         testNg.run();
 
         updateProcess(restApiUrl, restApiCredential, processTrackorKey);

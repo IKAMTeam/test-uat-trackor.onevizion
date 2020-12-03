@@ -46,7 +46,7 @@ public class TestNgRunOne extends TestNgRun {
         suites.add(suite);
         TestNG testNg = new TestNG();
         testNg.setXmlSuites(suites);
-        testNg.setAnnotationTransformer(new SeleniumAnnotationTransformer());
+        testNg.addListener(new SeleniumAnnotationTransformer());
         testNg.run();
     }
 
