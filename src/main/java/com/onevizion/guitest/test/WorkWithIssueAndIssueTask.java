@@ -121,7 +121,6 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
      */
     @Test
     public void createIssueTask() {
-        Map<String, String> vals = new HashMap<>();
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
 
@@ -153,7 +152,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
 //      5. In the opened window (applet) "Add Issue Task" fill the field "IT:Description"
         //fe100099175_1_0
-        tb.editField(ConfigFieldType.TEXT, "Issue Task for testing", null, "fe100099175_1_0", vals, null, 1);
+        tb.editField(ConfigFieldType.TEXT, "Issue Task for testing", "fe100099175_1_0", 1);
 
 //      6. Fill the field "IT:Comments"
 //      seleniumSettings.getWebDriver().findElement(By.name("fe1000913062_1_0")).sendKeys("Comment for testing");

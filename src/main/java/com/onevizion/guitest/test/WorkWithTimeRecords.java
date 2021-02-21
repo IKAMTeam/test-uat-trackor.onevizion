@@ -9,8 +9,6 @@ import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @SeleniumTest
 public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
@@ -28,7 +26,6 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
 
     @Test
     public void addTimeRecord_FillOnlySpentHours() {
-        Map<String, String> vals = new HashMap<>();
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
         mainMenu.openMenuItemAndWaitGridLoad("Issue");
@@ -60,7 +57,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         wait.waitFormLoad();
 
 //      5. In the opened window (applet) "Add Time Record", write hours into the "T:Spent Hours" field
-        tb.editField(ConfigFieldType.TEXT, "0.01", null, "fe100092729_1_0", vals, null, 1);
+        tb.editField(ConfigFieldType.TEXT, "0.01", "fe100092729_1_0", 1);
 
 //      6. Click on the "OK" button
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
@@ -89,7 +86,6 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
      */
     @Test
     public void addTimeRecord_with_filter_TestsAndroid() {
-        Map<String, String> vals = new HashMap<>();
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         mainMenu.openMenuItemAndWaitGridLoad("Issue");
 
@@ -119,16 +115,16 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
 
         //5. Write the value in the field "T:Comments"
-        tb.editField(ConfigFieldType.MEMO, "Time record was added for testing", null, "fe100092745_1_0", vals, null, 1);
+        tb.editField(ConfigFieldType.MEMO, "Time record was added for testing", "fe100092745_1_0", 1);
 
         //6. Write the value in the field "T:Spent Hours"
-        tb.editField(ConfigFieldType.NUMBER, "0.01", null, "fe100092729_1_0", vals, null, 1);
+        tb.editField(ConfigFieldType.NUMBER, "0.01", "fe100092729_1_0", 1);
 
         //7. Change the value of the field "T:Work Date"
         Date dateNow = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("MM/dd/yyyy");
 
-        tb.editField(ConfigFieldType.DATE, formatForDateNow.format(dateNow), null, "fe100092765_1_0", vals, null, 1);
+        tb.editField(ConfigFieldType.DATE, formatForDateNow.format(dateNow), "fe100092765_1_0", 1);
 
         //8. Click on the "OK" button
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
@@ -154,7 +150,6 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
      */
     @Test
     public void viewTotalSpendHoursInCurrentMonth() {
-        Map<String, String> vals = new HashMap<>();
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
 
         //1. Go to page Time Record by main menu
@@ -173,7 +168,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         wait.waitWebElement(By.id(BUTTON_CANCEL_ID_BASE));
 
         //6. Change the value of the field "Columns" to "T:Spent Hours"
-        tb.editField(ConfigFieldType.DROP_DOWN, "T:Spent Hours", null, "fields", vals, null, 1);
+        tb.editField(ConfigFieldType.DROP_DOWN, "T:Spent Hours", "fields", 1);
 
         //7. Check Total value
         sleep(5000L);

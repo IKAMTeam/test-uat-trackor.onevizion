@@ -1,8 +1,5 @@
 package com.onevizion.guitest.test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.onevizion.guitest.AbstractSeleniumLoginPage;
 import com.onevizion.uitest.api.exception.SeleniumUnexpectedException;
 import org.openqa.selenium.By;
@@ -54,13 +51,11 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         String comments_before = seleniumSettings.getWebDriver().findElement(By.name("fe1000912036_1_0")).getAttribute("value");
         int comments_length_before = comments_before.length();
 
-        Map<String, String> vals = new HashMap<String, String>();
-
         String content_comment = "This is new comment, created for testing";
-        tb.editField(ConfigFieldType.MEMO, content_comment, null, "fe1000912037_1_0", vals, null, 2);
+        tb.editField(ConfigFieldType.MEMO, content_comment, "fe1000912037_1_0", 2);
 
         /** <b>5. Change the value of the field "C:Status" to "Awaiting Info(Internal)"</b> */
-        tb.editField(ConfigFieldType.DROP_DOWN, "Awaiting Info(Internal)", null, "fe100099547_1_0", vals, null, 2);
+        tb.editField(ConfigFieldType.DROP_DOWN, "Awaiting Info(Internal)", "fe100099547_1_0", 2);
 
         /** <b>6. Click on the "OK" button</b> */
         window.closeModal(By.id(BUTTON_OK_ID_BASE));
@@ -84,9 +79,8 @@ public class AddInternalComment extends AbstractSeleniumLoginPage {
         if(!seleniumSettings.getWebDriver().findElement(By.name("fe1000912037_1_0")).getAttribute("value").toString().equals(""))
             throw new SeleniumUnexpectedException("Field C:New Comment not cleared");
 
-        vals.put("fe100099547_1_0", "Awaiting Info(Internal)");
         /**<b>10. Verify that the value of the "C:Status" field is "Awaiting Info" (Internal)</b> */
-        tb.checkField(ConfigFieldType.DROP_DOWN, "fe100099547_1_0", vals, 2, true, false );
+        tb.checkField(ConfigFieldType.DROP_DOWN, "fe100099547_1_0", "Awaiting Info(Internal)", 2, true, false );
 
         /**<b>11. Click on the "Cancel" button</b> */
         window.closeModal(By.id(BUTTON_CANCEL_ID_BASE));
