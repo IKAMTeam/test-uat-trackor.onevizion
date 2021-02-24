@@ -7,9 +7,6 @@ import com.onevizion.uitest.api.vo.ConfigFieldType;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @SeleniumTest
 public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 
@@ -256,7 +253,6 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
      */
     @Test
     public void editIssueTaskStatusInGrid() {
-        Map<String, String> vals = new HashMap<>();
         login.login(seleniumSettings.getTestUser(), seleniumSettings.getTestPassword());
         wait.waitWebElement(By.id(GRID_ID_BASE + getGridIdx()));
 //      1. Open the main menu and select "Issue Task" (View: G:Default, Filter: G:Next Release)
@@ -276,7 +272,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         //element.setFocusOnElement();
 //      3. Update the value of the IT: Status field in the grid
         //tb.editField(ConfigFieldType.DROP_DOWN, "In Progress", null, "epmDd1", vals, vals, 1);
-        tb.editCell(getGridIdx(), 0, 4, ConfigFieldType.DROP_DOWN, "In Progress", "", null, vals, vals);
+        tb.editCell(getGridIdx(), 0, 4, ConfigFieldType.DROP_DOWN, "In Progress");
         seleniumSettings.getWebDriver().findElement(By.id("navPowered" + getGridIdx())).click();
 
 //      4. Save changes to the grid
