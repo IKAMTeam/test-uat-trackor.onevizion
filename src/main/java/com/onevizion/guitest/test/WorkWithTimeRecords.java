@@ -53,8 +53,7 @@ public class WorkWithTimeRecords extends AbstractSeleniumLoginPage {
         tab.goToTab(5);
 
 //      4. Click on the "Add" button
-        window.openModal(By.id(BUTTON_ADD_ID_BASE + "5"));
-        wait.waitFormLoad();
+        form.openAdd(5);
 
 //      5. In the opened window (applet) "Add Time Record", write hours into the "T:Spent Hours" field
         tb.editField(ConfigFieldType.TEXT, "0.01", "fe100092729_1_0", 1);

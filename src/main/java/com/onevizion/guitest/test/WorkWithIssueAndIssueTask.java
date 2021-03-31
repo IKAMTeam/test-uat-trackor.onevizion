@@ -144,8 +144,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
         long rows_count_before = grid.getGridRowsCount(4L);
 
 //      4. Click on the "Add" button
-        window.openModal(By.id(BUTTON_ADD_ID_BASE + "4"));
-        wait.waitWebElement(By.id(BUTTON_OK_ID_BASE));
+        form.openAdd(4);
 
 //      5. In the opened window (applet) "Add Issue Task" fill the field "IT:Description"
         //fe100099175_1_0
@@ -224,8 +223,7 @@ public class WorkWithIssueAndIssueTask extends AbstractSeleniumLoginPage {
 //      3. In the opened window (applet) "Edit Issue" go to the tab "IT:Issue Task"
         tab.goToTab(4);
 //      5. In the opened window (applet) “Add Issue Task” fill in the fields IT:Backport Version
-        window.openModal(By.id(BUTTON_ADD_ID_BASE + "4")); // getGridIdx()));
-        wait.waitWebElement(By.name("fe1000913084_1_0_but"));
+        form.openAdd(4);
 
         window.openModal(By.name("fe1000913084_1_0_but"));
         grid2.waitLoad();
